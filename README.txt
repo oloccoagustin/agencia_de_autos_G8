@@ -5,18 +5,9 @@
 ## Descripción
 Este proyecto consiste en el desarrollo de una página web para una concesionaria de vehículos.
 
-La página permitirá visualizar los autos disponibles y consultar información como:
-
-* Marca y modelo.
-* Año.
-* Precio.
-* Kilometraje.
-* Combustible y transmisión.
-* Fotografías.
+El objetivo es facilitar la búsqueda de vehículos nuevos o usados y permitir que los clientes puedan realizar consultas de manera online.
 
 También contará con información de la concesionaria y medios de contacto.
-
-El objetivo es facilitar la búsqueda de vehículos nuevos o usados y permitir que los clientes puedan realizar consultas de manera online.
 
 ---
 
@@ -44,20 +35,12 @@ git pull origin main
 
 ### 3. Crear una rama
 
-No se trabajará directamente sobre main.
+No trabajar directamente sobre main.
 
 Cada tarea deberá realizarse en una rama diferente:
 
 bash
 git checkout -b nombre-de-la-rama
-
-
-Ejemplos:
-
-bash
-git checkout -b navbar
-git checkout -b catalogo-autos
-git checkout -b formulario-contacto
 
 
 ---
@@ -96,33 +79,12 @@ Tipos principales:
 | style    | Cambios visuales         |
 | refactor | Reorganización de código |
 
-Ejemplos:
-
-bash
-git commit -m "feat: agrega catalogo de vehiculos"
-git commit -m "fix: corrige formulario"
-git commit -m "style: modifica navbar"
-
 
 ---
 
-### 6. Subir la rama
+### 6. Pull Requests
 
-bash
-git push origin nombre-de-la-rama
-
-
-Ejemplo:
-
-bash
-git push origin catalogo-autos
-
-
----
-
-### 7. Pull Requests
-
-Cuando se termina una tarea se debe crear una Pull Request hacia main.
+Crear una Pull Request hacia main.
 
 La PR deberá:
 
@@ -134,26 +96,20 @@ Una vez aprobada, se realiza el merge a main y se elimina la rama utilizada.
 
 ---
 
+
 ## Flujo de trabajo con Git
 
-text
-Actualizar main
-      ↓
-Crear rama
-      ↓
-Realizar cambios
-      ↓
-git add .
-      ↓
-git commit
-      ↓
-git push
-      ↓
-Pull Request
-      ↓
-Revisión
-      ↓
-Merge a main
+```text
+Nueva rama
+   ↓
+Commit
+   ↓
+Push
+   ↓
+Pull Request → Revisión → Merge
+```
+
+---
 
 
 ---
@@ -163,8 +119,6 @@ Merge a main
 La página permitirá:
 
 * Visualizar vehículos disponibles.
-* Consultar datos e imágenes de cada auto.
-* Diferenciar vehículos nuevos y usados.
 * Consultar precios.
 * Ver información de la concesionaria.
 * Enviar consultas mediante un formulario.
