@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarPoint | Autos usados seleccionados</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-interno">
+      <a href="index.html" class="logo">CAR<span>POINT</span></a>
+      <button class="boton-menu" id="botonMenu">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html" class="activo">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="financiacion.html">Financiación</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-texto">
+      <h1>Autos usados,<br>calidad de agencia.</h1>
+      <p>Vehículos revisados uno por uno, con garantía escrita y transferencia incluida. Encontrá el tuyo hoy.</p>
+      <div class="hero-botones">
+        <a href="catalogo.html" class="boton">Ver catálogo</a>
+        <a href="financiacion.html" class="boton-secundario">Calcular cuota</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="buscador">
+    <div class="contenedor">
+      <div class="buscador-caja">
+        <div class="buscador-izquierda">
+          <h2 class="titulo-seccion">Vehículos usados en stock</h2>
+          <label for="selectMarca">Elegí la marca</label>
+          <select id="selectMarca">
+            <option value="todas">Todas las marcas</option>
+          </select>
+          <button class="resultado-stock" id="botonStock">Cargando stock...</button>
+        </div>
+        <div class="buscador-derecha">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80"
+               alt="Auto usado en la ciudad"
+               onerror="this.src='https://placehold.co/900x520/1b1f23/a7aeb5?text=CarPoint'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Descubrí CarPoint</h2>
+      <p class="subtitulo-seccion">Todo lo que necesitás para comprar tu próximo auto.</p>
+
+      <div class="grilla">
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1567818735868-e71b99932e29?auto=format&fit=crop&w=800&q=80"
+               alt="Showroom CarPoint"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Showroom'">
+          <div class="tarjeta-capa">
+            <h3>Showroom</h3>
+            <a href="nosotros.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+               alt="Financiación"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Financiacion'">
+          <div class="tarjeta-capa">
+            <h3>Financiación</h3>
+            <a href="financiacion.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80"
+               alt="Toma de usados"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Usados'">
+          <div class="tarjeta-capa">
+            <h3>Toma de usados</h3>
+            <a href="contacto.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=800&q=80"
+               alt="Taller de revisión"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Taller'">
+          <div class="tarjeta-capa">
+            <h3>Revisión 120 puntos</h3>
+            <a href="nosotros.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80"
+               alt="Test drive en ruta"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Test+Drive'">
+          <div class="tarjeta-capa">
+            <h3>Test drive</h3>
+            <a href="contacto.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-imagen">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80"
+               alt="Garantía"
+               onerror="this.src='https://placehold.co/800x600/1b1f23/a7aeb5?text=Garantia'">
+          <div class="tarjeta-capa">
+            <h3>Garantía 12 meses</h3>
+            <a href="nosotros.html" class="link-ver-mas">Ver más &rsaquo;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modelos">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Destacados de la semana</h2>
+      <p class="subtitulo-seccion">Unidades seleccionadas por nuestro equipo.</p>
+      <div class="grilla-modelos" id="destacados"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <h2 class="titulo-seccion">¿Por qué comprar en CarPoint?</h2>
+      <p class="subtitulo-seccion">Comprar un usado también puede ser una experiencia segura.</p>
+
+      <div class="grilla-beneficios">
+        <div class="beneficio">
+          <div class="icono">&#128269;</div>
+          <h3>120 puntos de control</h3>
+          <p>Cada unidad pasa por una revisión mecánica completa antes de publicarse.</p>
+        </div>
+        <div class="beneficio">
+          <div class="icono">&#128736;</div>
+          <h3>Garantía 12 meses</h3>
+          <p>Garantía escrita sobre motor y caja, válida en todo el país.</p>
+        </div>
+        <div class="beneficio">
+          <div class="icono">&#128179;</div>
+          <h3>Financiación propia</h3>
+          <p>Hasta 60 cuotas, sin necesidad de cambiar de banco.</p>
+        </div>
+        <div class="beneficio">
+          <div class="icono">&#128663;</div>
+          <h3>Tomamos tu usado</h3>
+          <p>Tasamos tu auto en el día y lo descontamos de tu próxima compra.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-columnas">
+      <div class="footer-columna">
+        <h4>CAR<span style="color:#d6001c">POINT</span></h4>
+        <p>Concesionaria de autos usados seleccionados.<br>Desde 2010 en Argentina.</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="financiacion.html">Financiación</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-columna">
+        <h4>Contacto</h4>
+        <p>Av. Siempreviva 1234, CABA</p>
+        <p>Tel: (011) 4000-5000</p>
+        <p>ventas@carpoint.com.ar</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Horarios</h4>
+        <p>Lunes a viernes: 9 a 19 hs</p>
+        <p>Sábados: 9 a 14 hs</p>
+        <p>Domingos: cerrado</p>
+      </div>
+    </div>
+    <div class="footer-abajo">
+      <p>&copy; 2026 CarPoint - Proyecto universitario Grupo 8</p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const IMG_FALLBACK = "https://placehold.co/600x400/14171a/a7aeb5?text=CarPoint";
+
+    let autos = [];
+
+    fetch("datos/autos.json")
+      .then((res) => res.json())
+      .then((datos) => {
+        autos = datos;
+        cargarMarcas();
+        mostrarDestacados();
+        actualizarStock();
+      })
+      .catch(() => {
+        $("botonStock").textContent = "No se pudo cargar el stock";
+        $("destacados").innerHTML =
+          '<p class="aviso-carga">No se pudieron cargar los vehículos. ' +
+          'Acordate de abrir el sitio con un servidor local (Live Server, o "python3 -m http.server").</p>';
+      });
+
+    function cargarMarcas() {
+      const marcas = [...new Set(autos.map((a) => a.marca))].sort();
+      const select = $("selectMarca");
+
+      for (const marca of marcas) {
+        select.innerHTML += `<option value="${marca}">${marca}</option>`;
+      }
+    }
+
+    function mostrarDestacados() {
+      $("destacados").innerHTML = autos
+        .filter((auto) => auto.destacado)
+        .map(
+          (auto) => `
+          <div class="card-modelo">
+            <img src="${auto.imagen}" alt="${auto.marca} ${auto.modelo}" onerror="this.src='${IMG_FALLBACK}'">
+            <div class="etiqueta">${auto.combustible}</div>
+            <h3>${auto.marca} ${auto.modelo}</h3>
+            <p class="precio-modelo">$${auto.precio.toLocaleString("es-AR")}</p>
+            <a href="catalogo.html?marca=${auto.marca}" class="boton-secundario">Ver ficha</a>
+          </div>`
+        )
+        .join("");
+    }
+
+    function actualizarStock() {
+      const marca = $("selectMarca").value;
+      const cantidad =
+        marca === "todas" ? autos.length : autos.filter((a) => a.marca === marca).length;
+
+      $("botonStock").textContent =
+        cantidad === 1 ? "1 vehículo disponible" : `${cantidad} vehículos disponibles`;
+    }
+
+    $("selectMarca").addEventListener("change", actualizarStock);
+
+    $("botonStock").addEventListener("click", () => {
+      window.location.href = "catalogo.html?marca=" + $("selectMarca").value;
+    });
+
+    $("botonMenu").addEventListener("click", () => $("menu").classList.toggle("abierto"));
+  </script>
+
+</body>
+</html>

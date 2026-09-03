@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarPoint | Catálogo de usados</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-interno">
+      <a href="index.html" class="logo">CAR<span>POINT</span></a>
+      <button class="boton-menu" id="botonMenu">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html" class="activo">Catálogo</a></li>
+        <li><a href="financiacion.html">Financiación</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>Catálogo de usados</h1>
+      <p>Todas las unidades con revisión de 120 puntos y garantía de 12 meses.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="contenedor">
+
+      <div class="filtros">
+        <div class="filtro">
+          <label for="filtroMarca">Marca</label>
+          <select id="filtroMarca"><option value="todas">Todas</option></select>
+        </div>
+
+        <div class="filtro">
+          <label for="filtroTipo">Tipo</label>
+          <select id="filtroTipo"><option value="todos">Todos</option></select>
+        </div>
+
+        <div class="filtro">
+          <label for="filtroCombustible">Combustible</label>
+          <select id="filtroCombustible"><option value="todos">Todos</option></select>
+        </div>
+
+        <div class="filtro">
+          <label for="filtroPrecio">Precio máximo</label>
+          <select id="filtroPrecio">
+            <option value="999000000">Sin límite</option>
+            <option value="15000000">Hasta $15.000.000</option>
+            <option value="20000000">Hasta $20.000.000</option>
+            <option value="25000000">Hasta $25.000.000</option>
+            <option value="35000000">Hasta $35.000.000</option>
+          </select>
+        </div>
+
+        <div class="filtro">
+          <label for="filtroOrden">Ordenar por</label>
+          <select id="filtroOrden">
+            <option value="ninguno">Relevancia</option>
+            <option value="menor">Menor precio</option>
+            <option value="mayor">Mayor precio</option>
+            <option value="nuevo">Más nuevo</option>
+          </select>
+        </div>
+
+        <div class="filtro filtro-boton">
+          <button class="boton-secundario" id="botonLimpiar">Limpiar filtros</button>
+        </div>
+      </div>
+
+      <p class="contador" id="contador"></p>
+      <div class="grilla-autos" id="listaAutos"></div>
+      <p class="sin-resultados" id="aviso" style="display:none;"></p>
+
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-caja">
+      <img id="modalImagen" src="" alt="Vehículo">
+      <div class="modal-cuerpo">
+        <h2 id="modalTitulo"></h2>
+        <p class="card-precio" id="modalPrecio"></p>
+        <ul class="modal-lista" id="modalDatos"></ul>
+        <div class="modal-botones">
+          <a href="contacto.html" class="boton">Consultar</a>
+          <a href="financiacion.html" class="boton-secundario">Financiar</a>
+          <button class="boton-secundario" id="cerrarModal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-columnas">
+      <div class="footer-columna">
+        <h4>CAR<span style="color:#d6001c">POINT</span></h4>
+        <p>Concesionaria de autos usados seleccionados.<br>Desde 2010 en Argentina.</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="financiacion.html">Financiación</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-columna">
+        <h4>Contacto</h4>
+        <p>Av. Siempreviva 1234, CABA</p>
+        <p>Tel: (011) 4000-5000</p>
+        <p>ventas@carpoint.com.ar</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Horarios</h4>
+        <p>Lunes a viernes: 9 a 19 hs</p>
+        <p>Sábados: 9 a 14 hs</p>
+        <p>Domingos: cerrado</p>
+      </div>
+    </div>
+    <div class="footer-abajo">
+      <p>&copy; 2026 CarPoint - Proyecto universitario Grupo 8</p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const IMG_FALLBACK = "https://placehold.co/700x400/1b1f23/a7aeb5?text=CarPoint";
+
+    const pesos = (n) => "$" + n.toLocaleString("es-AR");
+    const kilometros = (n) => n.toLocaleString("es-AR") + " km";
+
+    let autos = [];
+
+    fetch("datos/autos.json")
+      .then((res) => res.json())
+      .then((datos) => {
+        autos = datos;
+        llenarFiltros();
+        marcaDesdeLaUrl();
+        filtrar();
+      })
+      .catch(() => {
+        mostrarAviso(
+          "No se pudieron cargar los vehículos. Abrí el sitio con un servidor local " +
+          '(Live Server en VS Code, o "python3 -m http.server" en la carpeta del proyecto).'
+        );
+      });
+
+    function llenarFiltros() {
+      const opciones = (campo) => [...new Set(autos.map((a) => a[campo]))].sort();
+
+      for (const marca of opciones("marca")) {
+        $("filtroMarca").innerHTML += `<option value="${marca}">${marca}</option>`;
+      }
+      for (const tipo of opciones("tipo")) {
+        $("filtroTipo").innerHTML += `<option value="${tipo}">${tipo}</option>`;
+      }
+      for (const comb of opciones("combustible")) {
+        $("filtroCombustible").innerHTML += `<option value="${comb}">${comb}</option>`;
+      }
+    }
+
+    function marcaDesdeLaUrl() {
+      const marca = new URLSearchParams(window.location.search).get("marca");
+
+      if (marca && marca !== "todas") {
+        $("filtroMarca").value = marca;
+      }
+    }
+
+    function filtrar() {
+      const marca = $("filtroMarca").value;
+      const tipo = $("filtroTipo").value;
+      const combustible = $("filtroCombustible").value;
+      const tope = Number($("filtroPrecio").value);
+
+      let resultado = autos.filter((auto) => {
+        if (marca !== "todas" && auto.marca !== marca) return false;
+        if (tipo !== "todos" && auto.tipo !== tipo) return false;
+        if (combustible !== "todos" && auto.combustible !== combustible) return false;
+        return auto.precio <= tope;
+      });
+
+      const orden = $("filtroOrden").value;
+      if (orden === "menor") resultado.sort((a, b) => a.precio - b.precio);
+      if (orden === "mayor") resultado.sort((a, b) => b.precio - a.precio);
+      if (orden === "nuevo") resultado.sort((a, b) => b.anio - a.anio);
+
+      pintar(resultado);
+    }
+
+    function pintar(lista) {
+      $("contador").textContent = `${lista.length} vehículos encontrados`;
+
+      if (lista.length === 0) {
+        $("listaAutos").innerHTML = "";
+        mostrarAviso("No encontramos vehículos con esos filtros. Probá cambiando alguna opción.");
+        return;
+      }
+
+      $("aviso").style.display = "none";
+      $("listaAutos").innerHTML = lista
+        .map(
+          (auto) => `
+          <div class="card-auto">
+            <img src="${auto.imagen}" alt="${auto.marca} ${auto.modelo}" onerror="this.src='${IMG_FALLBACK}'">
+            <div class="card-cuerpo">
+              <h3>${auto.marca} ${auto.modelo}</h3>
+              <p class="card-anio">${auto.anio} &middot; ${kilometros(auto.km)}</p>
+              <div class="card-datos">
+                <span class="dato">${auto.tipo}</span>
+                <span class="dato">${auto.combustible}</span>
+                <span class="dato">${auto.caja}</span>
+              </div>
+              <p class="card-precio">${pesos(auto.precio)}</p>
+              <button class="boton" data-id="${auto.id}">Ver detalle</button>
+            </div>
+          </div>`
+        )
+        .join("");
+    }
+
+    function mostrarAviso(texto) {
+      $("aviso").textContent = texto;
+      $("aviso").style.display = "block";
+    }
+
+    function abrirDetalle(id) {
+      const auto = autos.find((a) => a.id === id);
+      if (!auto) return;
+
+      $("modalImagen").src = auto.imagen;
+      $("modalTitulo").textContent = `${auto.marca} ${auto.modelo}`;
+      $("modalPrecio").textContent = pesos(auto.precio);
+
+      const ficha = {
+        "Año": auto.anio,
+        "Kilómetros": kilometros(auto.km),
+        "Tipo": auto.tipo,
+        "Combustible": auto.combustible,
+        "Transmisión": auto.caja,
+        "Color": auto.color,
+        "Garantía": "12 meses",
+      };
+
+      $("modalDatos").innerHTML = Object.entries(ficha)
+        .map(([clave, valor]) => `<li><strong>${clave}:</strong> ${valor}</li>`)
+        .join("");
+
+      $("modal").classList.add("visible");
+    }
+
+    const cerrar = () => $("modal").classList.remove("visible");
+
+    $("listaAutos").addEventListener("click", (e) => {
+      if (e.target.dataset.id) abrirDetalle(Number(e.target.dataset.id));
+    });
+
+    $("cerrarModal").addEventListener("click", cerrar);
+    $("modal").addEventListener("click", (e) => {
+      if (e.target.id === "modal") cerrar();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") cerrar();
+    });
+
+    for (const id of ["filtroMarca", "filtroTipo", "filtroCombustible", "filtroPrecio", "filtroOrden"]) {
+      $(id).addEventListener("change", filtrar);
+    }
+
+    $("botonLimpiar").addEventListener("click", () => {
+      $("filtroMarca").value = "todas";
+      $("filtroTipo").value = "todos";
+      $("filtroCombustible").value = "todos";
+      $("filtroPrecio").value = "999000000";
+      $("filtroOrden").value = "ninguno";
+      filtrar();
+    });
+
+    $("botonMenu").addEventListener("click", () => $("menu").classList.toggle("abierto"));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarPoint | Financiación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/financiacion.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-interno">
+      <a href="index.html" class="logo">CAR<span>POINT</span></a>
+      <button class="boton-menu" id="botonMenu">&#9776;</button>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="financiacion.html" class="activo">Financiación</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="encabezado-pagina">
+    <div class="contenedor">
+      <h1>Financiación</h1>
+      <p>Calculá tu cuota en segundos y financiá hasta el 70% del valor del vehículo.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="contenedor">
+      <div class="calculadora">
+
+        <div class="calculadora-form">
+          <h2>Simulá tu crédito</h2>
+
+          <div class="campo">
+            <label for="precio">Precio del vehículo ($)</label>
+            <input type="number" id="precio" value="20000000" min="1000000" step="100000">
+          </div>
+
+          <div class="campo">
+            <label for="anticipo">Anticipo ($)</label>
+            <input type="number" id="anticipo" value="6000000" min="0" step="100000">
+          </div>
+
+          <div class="campo">
+            <label for="cuotas">Cantidad de cuotas</label>
+            <select id="cuotas">
+              <option value="12">12 cuotas</option>
+              <option value="24">24 cuotas</option>
+              <option value="36" selected>36 cuotas</option>
+              <option value="48">48 cuotas</option>
+              <option value="60">60 cuotas</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="tasa">Tasa anual (%)</label>
+            <select id="tasa">
+              <option value="45">Plan Clásico - 45%</option>
+              <option value="38" selected>Plan Plus - 38%</option>
+              <option value="30">Plan Premium - 30%</option>
+            </select>
+          </div>
+
+          <button class="boton" id="botonCalcular">Calcular cuota</button>
+        </div>
+
+        <div class="calculadora-resultado">
+          <h2>Tu resultado</h2>
+          <p class="cuota-grande" id="cuotaMensual">$0</p>
+          <p class="cuota-texto" id="textoCuota">por mes</p>
+
+          <ul class="detalle-lista">
+            <li><span>Monto a financiar</span><span id="montoFinanciar">$0</span></li>
+            <li><span>Cantidad de cuotas</span><span id="detCuotas">0</span></li>
+            <li><span>Tasa anual</span><span id="detTasa">0%</span></li>
+            <li><span>Total de intereses</span><span id="totalIntereses">$0</span></li>
+            <li><span>Total a pagar</span><span id="totalPagar">$0</span></li>
+          </ul>
+
+          <p class="aviso" id="aviso">
+            * Los valores son estimativos y no constituyen una oferta comercial.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="planes">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Nuestros planes</h2>
+      <p class="subtitulo-seccion">Elegí el que mejor se adapte a tu situación.</p>
+
+      <div class="grilla-planes">
+        <div class="plan">
+          <h3>Plan Clásico</h3>
+          <p class="tasa">45%</p>
+          <p>Tasa anual fija</p>
+          <ul>
+            <li>Anticipo desde el 20%</li>
+            <li>Hasta 36 cuotas</li>
+            <li>Aprobación en 48 hs</li>
+            <li>Sin recibo de sueldo</li>
+          </ul>
+          <a href="contacto.html" class="boton-secundario">Consultar</a>
+        </div>
+
+        <div class="plan destacado">
+          <h3>Plan Plus</h3>
+          <p class="tasa">38%</p>
+          <p>Tasa anual fija</p>
+          <ul>
+            <li>Anticipo desde el 30%</li>
+            <li>Hasta 60 cuotas</li>
+            <li>Aprobación en 24 hs</li>
+            <li>Seguro bonificado 3 meses</li>
+          </ul>
+          <a href="contacto.html" class="boton">Consultar</a>
+        </div>
+
+        <div class="plan">
+          <h3>Plan Premium</h3>
+          <p class="tasa">30%</p>
+          <p>Tasa anual fija</p>
+          <ul>
+            <li>Anticipo desde el 50%</li>
+            <li>Hasta 48 cuotas</li>
+            <li>Aprobación en el día</li>
+            <li>Service gratis primer año</li>
+          </ul>
+          <a href="contacto.html" class="boton-secundario">Consultar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <h2 class="titulo-seccion">¿Cómo es el proceso?</h2>
+      <p class="subtitulo-seccion">Cuatro pasos y te llevás el auto.</p>
+
+      <div class="grilla-pasos">
+        <div class="paso">
+          <div class="numero">1</div>
+          <h3>Elegí tu auto</h3>
+          <p>Buscá en el catálogo la unidad que más te guste.</p>
+        </div>
+        <div class="paso">
+          <div class="numero">2</div>
+          <h3>Simulá la cuota</h3>
+          <p>Usá la calculadora para ver cuánto pagarías por mes.</p>
+        </div>
+        <div class="paso">
+          <div class="numero">3</div>
+          <h3>Presentá la documentación</h3>
+          <p>DNI, comprobante de domicilio e ingresos.</p>
+        </div>
+        <div class="paso">
+          <div class="numero">4</div>
+          <h3>Retirá el vehículo</h3>
+          <p>Con la transferencia y la garantía ya incluidas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-columnas">
+      <div class="footer-columna">
+        <h4>CAR<span style="color:#d6001c">POINT</span></h4>
+        <p>Concesionaria de autos usados seleccionados.<br>Desde 2010 en Argentina.</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="financiacion.html">Financiación</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-columna">
+        <h4>Contacto</h4>
+        <p>Av. Siempreviva 1234, CABA</p>
+        <p>Tel: (011) 4000-5000</p>
+        <p>ventas@carpoint.com.ar</p>
+      </div>
+      <div class="footer-columna">
+        <h4>Horarios</h4>
+        <p>Lunes a viernes: 9 a 19 hs</p>
+        <p>Sábados: 9 a 14 hs</p>
+        <p>Domingos: cerrado</p>
+      </div>
+    </div>
+    <div class="footer-abajo">
+      <p>&copy; 2026 CarPoint - Proyecto universitario Grupo 8</p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const AVISO_LEGAL = "* Los valores son estimativos y no constituyen una oferta comercial.";
+
+    const pesos = (n) => "$" + Math.round(n).toLocaleString("es-AR");
+
+    function calcular() {
+      const precio = Number($("precio").value);
+      const anticipo = Number($("anticipo").value);
+      const cuotas = Number($("cuotas").value);
+      const tasaAnual = Number($("tasa").value);
+
+      if (precio <= 0) {
+        $("aviso").textContent = "Ingresá un precio válido.";
+        return;
+      }
+      if (anticipo >= precio) {
+        $("aviso").textContent = "El anticipo tiene que ser menor al precio del vehículo.";
+        return;
+      }
+
+      $("aviso").textContent = AVISO_LEGAL;
+
+      const capital = precio - anticipo;
+      const i = tasaAnual / 100 / 12;
+
+      const cuota = (capital * i) / (1 - Math.pow(1 + i, -cuotas));
+      const total = cuota * cuotas;
+
+      $("cuotaMensual").textContent = pesos(cuota);
+      $("textoCuota").textContent = `por mes en ${cuotas} cuotas`;
+      $("montoFinanciar").textContent = pesos(capital);
+      $("detCuotas").textContent = cuotas;
+      $("detTasa").textContent = tasaAnual + "%";
+      $("totalIntereses").textContent = pesos(total - capital);
+      $("totalPagar").textContent = pesos(total + anticipo);
+    }
+
+    $("botonCalcular").addEventListener("click", calcular);
+
+    for (const id of ["precio", "anticipo", "cuotas", "tasa"]) {
+      $(id).addEventListener("input", calcular);
+    }
+
+    $("botonMenu").addEventListener("click", () => $("menu").classList.toggle("abierto"));
+
+    calcular();
+  </script>
+
+</body>
+</html>
