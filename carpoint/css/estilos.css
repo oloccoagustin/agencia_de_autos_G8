@@ -1,0 +1,112 @@
+body {
+	margin: 0;
+	background: #141414;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+
+header {
+	background: #1c1c1c;
+	padding: 16px 35px;
+	overflow: hidden;
+	position: relative;
+}
+
+header nav {
+	float: left;
+}
+
+nav a {
+	color: #ccc;
+	text-decoration: none;
+	margin-right: 22px;
+	font-size: 14px;
+}
+
+nav a:hover {
+	color: #fff;
+}
+
+.logo {
+	position: absolute;
+	left: 50%;
+	top: 15px;
+	margin-left: -50px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 19px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.logo span {
+	color: #d0202f;
+}
+
+.concesionaria {
+	float: right;
+}
+
+.concesionaria a {
+	color: #bbb;
+	text-decoration: none;
+	font-size: 13px;
+	margin-left: 20px;
+}
+
+main {
+	width: 1050px;
+	margin: 0 auto;
+	padding: 15px 0 50px 0;
+}
+
+h2 {
+	font-size: 26px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+.boton {
+	display: inline-block;
+	background: #6e7683;
+	color: #fff;
+	padding: 11px 24px;
+	text-decoration: none;
+	font-size: 14px;
+	border-radius: 20px;
+}
+
+.boton:hover {
+	background: #838c9a;
+}
+
+footer {
+	background: #1c1c1c;
+	padding: 35px;
+	overflow: hidden;
+}
+
+.columna {
+	float: left;
+	width: 20%;
+}
+
+.columna h4 {
+	font-size: 13px;
+	margin: 0 0 12px 0;
+}
+
+.columna a {
+	display: block;
+	color: #8d8d8d;
+	text-decoration: none;
+	font-size: 12px;
+	margin-bottom: 7px;
+}
+
+.columna a:hover {
+	color: #fff;
+}
