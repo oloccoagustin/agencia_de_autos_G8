@@ -1,0 +1,38 @@
+form {
+	width: 400px;
+	margin: 20px 0 35px 0;
+}
+
+label {
+	display: block;
+	font-size: 13px;
+	margin-bottom: 4px;
+}
+
+input, select, textarea {
+	width: 100%;
+	box-sizing: border-box;
+	background: #2b2b2b;
+	border: 1px solid #444;
+	color: #fff;
+	padding: 9px;
+	margin-bottom: 14px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+}
+
+button {
+	background: #4d5460;
+	color: #fff;
+	border: 0;
+	padding: 11px 25px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.datos {
+	border-top: 1px solid #333;
+	padding-top: 18px;
+	color: #aaa;
+	font-size: 14px;
+}
