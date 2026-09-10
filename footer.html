@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CarPoint - Footer</title>
+	<style>
+		body {
+			margin: 0;
+			background: #141414;
+			color: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 15px;
+		}
+
+		main {
+			width: 1050px;
+			margin: 0 auto;
+			padding: 15px 0 50px 0;
+		}
+
+		h2 {
+			font-size: 26px;
+		}
+
+		h3 {
+			font-size: 20px;
+		}
+
+		.boton {
+			display: inline-block;
+			background: #6e7683;
+			color: #fff;
+			padding: 11px 24px;
+			text-decoration: none;
+			font-size: 14px;
+			border-radius: 20px;
+		}
+
+		.boton:hover {
+			background: #838c9a;
+		}
+
+		footer {
+			background: #1c1c1c;
+			padding: 35px;
+			overflow: hidden;
+		}
+
+		.columna {
+			float: left;
+			width: 20%;
+		}
+
+		.columna h4 {
+			font-size: 13px;
+			margin: 0 0 12px 0;
+		}
+
+		.columna a {
+			display: block;
+			color: #8d8d8d;
+			text-decoration: none;
+			font-size: 12px;
+			margin-bottom: 7px;
+		}
+
+		.columna a:hover {
+			color: #fff;
+		}
+
+		.stock {
+			overflow: hidden;
+			margin-top: 55px;
+		}
+
+		.stock-texto {
+			float: left;
+			width: 44%;
+			padding-top: 25px;
+		}
+
+		.stock-texto h2 {
+			font-size: 31px;
+			margin: 0 0 25px 0;
+		}
+
+		.stock-texto label {
+			display: block;
+			color: #aaa;
+			font-size: 13px;
+			margin-bottom: 7px;
+		}
+
+		.stock-texto select {
+			width: 100%;
+			background: #1c1c1c;
+			border: 1px solid #444;
+			border-radius: 6px;
+			color: #fff;
+			padding: 11px;
+			margin-bottom: 18px;
+			font-size: 14px;
+		}
+
+		.stock-texto .boton {
+			display: block;
+			text-align: center;
+		}
+
+		.stock-foto {
+			float: right;
+			width: 52%;
+			height: 300px;
+			object-fit: cover;
+			border-radius: 6px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="stock">
+			<div class="stock-texto">
+				<h2>Vehículos nuevos en stock</h2>
+				<label for="vehiculo">Elegí el vehículo</label>
+				<select id="vehiculo" disabled>
+					<option>Todos los vehículos</option>
+					<option>A3 Sportback</option>
+					<option>A3 Sedán</option>
+					<option>S3 Sportback</option>
+					<option>Q3</option>
+					<option>Q5</option>
+				</select>
+				<a class="boton" href="#">119 vehículos disponibles</a>
+			</div>
+			<img class="stock-foto" src="img/stock.jpg" alt="Audi A3 en la calle">
+		</div>
+	</main>
+
+	<footer>
+		<div class="columna">
+			<h4>Modelos</h4>
+			<a href="#">Todos los modelos</a>
+			<a href="#">Vehículos en stock</a>
+		</div>
+		<div class="columna">
+			<h4>Servicios y Accesorios</h4>
+			<a href="#">Service a domicilio</a>
+			<a href="#">Accesorios</a>
+		</div>
+		<div class="columna">
+			<h4>Cotizaciones</h4>
+			<a href="#">Whatsapp</a>
+			<a href="#">Teléfono</a>
+		</div>
+		<div class="columna">
+			<h4>Necesitás ayuda</h4>
+			<a href="#">Contacto</a>
+		</div>
+		<div class="columna">
+			<h4>Compañía</h4>
+			<a href="#">Nosotros</a>
+			<a href="#">Trabajá con nosotros</a>
+		</div>
+	</footer>
+</body>
+</html>
