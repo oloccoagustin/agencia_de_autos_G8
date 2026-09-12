@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarPoint</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0e0e12;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 24px 48px;
+        }
+
+        header h1 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .tv-screen {
+            background: #0e0e12;
+            flex: 1;
+            padding: 0 48px 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            flex: 2;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card--about {
+            background-image:
+                linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
+                url('concesionaria-carpoint.jpg');
+        }
+
+        .card--financing {
+            background-image:
+                linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
+                url('hombre-auto-lentes.avif');
+        }
+
+        .card--testdrive {
+            background-image:
+                linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
+                url('camaro-ruta.jpg');
+        }
+
+        .card__label {
+            padding: 20px 24px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .card:focus-visible {
+            outline: none;
+            transform: scale(1.04);
+            box-shadow: 0 0 0 3px #29b6f6;
+        }
+
+        .search-bar {
+            position: relative;
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 28px;
+            background-size: cover;
+            background-position: center;
+            background-image:
+                linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 55%),
+                url('buscar-concesionaria.avif');
+        }
+
+        .search-bar:focus-visible {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 0 0 3px #29b6f6;
+        }
+
+        .search-bar__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .search-bar__icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.2;
+        }
+
+        .search-bar__label {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido a CarPoint</h1>
+    </header>
+
+    <div class="tv-screen">
+
+        <div class="cards-row">
+            <div class="card card--about" tabindex="0">
+                <span class="card__label">Acerca de Nosotros</span>
+            </div>
+            <div class="card card--financing" tabindex="0">
+                <span class="card__label">Financiación</span>
+            </div>
+            <div class="card card--testdrive" tabindex="0">
+                <span class="card__label">Test Drive</span>
+            </div>
+        </div>
+
+        <div class="search-bar" tabindex="0">
+            <div class="search-bar__icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+            <span class="search-bar__label">Concesionarias Cercanas</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
