@@ -1,4 +1,3 @@
-
 :root{
     --bg: #17171d;
     --bg-hero: #17171d;
@@ -6,6 +5,9 @@
     --text-dim: #cfcfd6;
     --red: #e63946;
     --red-dark: #b81f2c;
+    --duracion: .4s;
+    --curva: cubic-bezier(.2,.8,.2,1);
+    --fuente-header: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 *{
@@ -49,17 +51,43 @@ body{
     left: 0;
     right: 0;
     height: 8000px;
-    background: linear-gradient(180deg, rgba(0,0,0,0.110) 0%, rgba(0,0,0,0) 100%);    z-index: 2;
+    background: linear-gradient(180deg, rgba(0,0,0,0.110) 0%, rgba(0,0,0,0) 100%);
+    z-index: 2;
     pointer-events: none;
 }
 
+/* Header fijo: se oculta al bajar y reaparece al subir (lo controla el JS) */
 .hero-wrapper header{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 100;
     background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 65%);
+    transition: transform var(--duracion) var(--curva);
+}
+
+/* Fondo oscuro que aparece cuando ya bajaste un poco.
+   Va en un ::before porque un degradé no se puede animar con transition,
+   pero la opacidad sí. */
+.hero-wrapper header::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(14,14,18,.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 24px rgba(0,0,0,.45);
+    opacity: 0;
+    transition: opacity var(--duracion) ease;
+}
+
+/* Estados que activa el JavaScript */
+.hero-wrapper header.header--solido::before{
+    opacity: 1;
+}
+.hero-wrapper header.header--oculto{
+    transform: translateY(-100%);
 }
 
 /* ---------- HEADER ---------- */
@@ -69,6 +97,7 @@ header{
     align-items: center;
     padding: 22px 32px;
     gap: 24px;
+    font-family: var(--fuente-header);
 }
 
 nav.left{
@@ -81,7 +110,8 @@ nav.left{
 nav.left a{
     color: var(--text);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;            /* Montserrat es más ancha que Segoe UI */
+    letter-spacing: .3px;
     font-weight: 400;
     opacity: 0.95;
     white-space: nowrap;
@@ -143,28 +173,112 @@ nav.left a.active{
     margin-left: 6px;
 }
 
-@media (max-width: 720px){
-    header{
-        grid-template-columns: auto 1fr auto;
-        padding: 14px 16px;
-        gap: 12px;
-    }
-    nav.left{ gap: 14px; }
-    nav.left a{ font-size: 13px; }
-    .logo-img{ height: 44px; }
-    .right .dealer span.label{ display: none; }
+/* =====================================================
+   ANIMACIONES DEL HEADER Y DEL HERO
+   ===================================================== */
+
+/* --- Keyframes --- */
+@keyframes bajarSuave{
+    0%   { opacity: 0; transform: translateY(-24px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes aparecerLogo{
+    0%   { opacity: 0; transform: scale(.85); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes fundido{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes zoomLento{
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.08); }
 }
 
-@media (max-width: 520px){
-    nav.left{ gap: 8px; }
-    nav.left a{ font-size: 11px; }
-    .logo-img{ height: 34px; }
+/* --- Video: aparece con fundido y hace un zoom lento y continuo --- */
+.hero-video{
+    animation: fundido 1.2s ease-out backwards,
+               zoomLento 24s ease-in-out infinite alternate;
+}
+
+/* --- Entrada al cargar la página (escalonada con animation-delay) ---
+   Uso "backwards" para que el elemento vuelva a sus estilos normales
+   al terminar y los efectos hover sigan funcionando. */
+nav.left a{
+    animation: bajarSuave .7s var(--curva) backwards;
+}
+nav.left a:nth-child(1){ animation-delay: .3s; }
+nav.left a:nth-child(2){ animation-delay: .45s; }
+nav.left a:nth-child(3){ animation-delay: .6s; }
+
+.logo{
+    animation: aparecerLogo .8s var(--curva) .2s backwards;
+}
+.right{
+    animation: bajarSuave .7s var(--curva) .7s backwards;
+}
+
+/* --- Links del menú: línea roja que crece al pasar el mouse --- */
+nav.left a{
+    padding-bottom: 4px;
+    background-image: linear-gradient(var(--red), var(--red));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    transition: background-size var(--duracion) var(--curva),
+                transform var(--duracion) var(--curva),
+                opacity .3s ease;
+}
+nav.left a:hover,
+nav.left a:focus-visible{
+    background-size: 100% 2px;
+    transform: translateY(-2px);
+    outline: none;
+}
+nav.left a.active{
+    background-size: 100% 2px;   /* el link activo ya tiene la línea */
+}
+
+/* --- Logo: crece y brilla en rojo --- */
+.logo-img{
+    transition: transform var(--duracion) var(--curva),
+                filter var(--duracion) ease;
+}
+.logo-img:hover{
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 12px rgba(230,57,70,.55));
+}
+
+/* --- Concesionario: cambia a rojo y el pin salta --- */
+.right .dealer{
+    transition: color var(--duracion) ease,
+                transform var(--duracion) var(--curva);
+}
+.right .dealer svg{
+    transition: transform var(--duracion) var(--curva);
+}
+.right .dealer:hover{
+    color: var(--red);
+    transform: translateX(-3px);
+}
+.right .dealer:hover svg{
+    transform: translateY(-3px) scale(1.15);
+}
+
+/* --- Lupa: crece, gira un poco y se pone roja --- */
+.right .search-icon{
+    transition: transform var(--duracion) var(--curva),
+                color var(--duracion) ease;
+}
+.right .search-icon:hover{
+    color: var(--red);
+    transform: scale(1.2) rotate(-12deg);
 }
 
 /* ---------- CONTENIDO (tarjetas + búsqueda) ---------- */
 .tv-screen{
     background: #0e0e12;
-    padding: 48px;
+    padding: 90px 48px;
     display: flex;
     flex-direction: column;
 }
@@ -172,23 +286,50 @@ nav.left a.active{
 .cards-row{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
     flex: 2;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
+/* ---------- TARJETAS ---------- */
 .card{
     position: relative;
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.15s ease;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     background-size: cover;
     background-position: center;
-    min-height: 200px;
+    min-height: 380px;
+    isolation: isolate;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1),
+                box-shadow .4s ease;
+}
+
+/* Capa con la misma imagen, para poder hacerle zoom sin agrandar la tarjeta */
+.card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    z-index: -2;
+    transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+}
+
+/* Brillo que cruza la tarjeta */
+.card::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+    transform: skewX(-20deg);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .card--about{
@@ -196,13 +337,11 @@ nav.left a.active{
         linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
         url('concesionaria-carpoint.jpg');
 }
-
 .card--financing{
     background-image:
         linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
         url('hombre-auto-lentes.avif');
 }
-
 .card--testdrive{
     background-image:
         linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.75) 100%),
@@ -210,51 +349,131 @@ nav.left a.active{
 }
 
 .card__label{
-    padding: 20px 24px;
+    position: relative;
+    padding: 28px 24px 34px;
     color: #fff;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
     text-align: center;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
 }
 
+/* Línea roja que crece debajo del texto */
+.card__label::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    width: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--red);
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: width .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease;
+}
+
+/* HOVER + FOCO (foco para navegar con control/teclado) */
+.card:hover,
 .card:focus-visible{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,.55),
+                0 0 0 1px rgba(255,255,255,.08);
     outline: none;
-    transform: scale(1.04);
-    box-shadow: 0 0 0 3px #29b6f6;
+}
+.card:hover::before,
+.card:focus-visible::before{
+    transform: scale(1.12);
+    filter: brightness(1.1);
+}
+.card:hover::after,
+.card:focus-visible::after{
+    left: 130%;
+    transition: left .9s ease;
+}
+.card:hover .card__label,
+.card:focus-visible .card__label{
+    transform: translateY(-6px);
+}
+.card:hover .card__label::after,
+.card:focus-visible .card__label::after{
+    width: 60%;
+    opacity: 1;
+}
+.card:focus-visible{
+    box-shadow: 0 20px 40px rgba(0,0,0,.55), 0 0 0 3px #29b6f6;
+}
+.card:active{
+    transform: translateY(-2px) scale(.98);
+    transition-duration: .1s;
 }
 
+/* ---------- BARRA DE BÚSQUEDA ---------- */
 .search-bar{
     position: relative;
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.15s ease;
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 24px 28px;
-    background-size: cover;
-    background-position: center;
+    padding: 40px 36px;
+    background-size: 105%;
+    background-position: 0% center;
     background-image:
         linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 55%),
         url('buscar-concesionaria.avif');
+    transition: transform .4s cubic-bezier(.2,.8,.2,1),
+                box-shadow .4s ease,
+                background-position 1.2s ease;
 }
 
+/* Flecha que aparece a la derecha */
+.search-bar::after{
+    content: "→";
+    margin-left: auto;
+    color: #fff;
+    font-size: 28px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.search-bar:hover,
 .search-bar:focus-visible{
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 34px rgba(0,0,0,.55);
+    background-position: 100% center;
     outline: none;
-    transform: scale(1.02);
-    box-shadow: 0 0 0 3px #29b6f6;
+}
+.search-bar:hover::after,
+.search-bar:focus-visible::after{
+    opacity: 1;
+    transform: translateX(0);
+}
+.search-bar:focus-visible{
+    box-shadow: 0 16px 34px rgba(0,0,0,.55), 0 0 0 3px #29b6f6;
+}
+.search-bar:active{
+    transform: scale(.985);
+    transition-duration: .1s;
 }
 
 .search-bar__icon{
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: rgba(255,255,255,0.18);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: background .3s ease, transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.search-bar:hover .search-bar__icon,
+.search-bar:focus-visible .search-bar__icon{
+    background: var(--red);
+    transform: scale(1.12) rotate(-10deg);
 }
 
 .search-bar__icon svg{
@@ -267,16 +486,43 @@ nav.left a.active{
 
 .search-bar__label{
     color: #fff;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.search-bar:hover .search-bar__label,
+.search-bar:focus-visible .search-bar__label{
+    transform: translateX(6px);
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- ENTRADA AL HACER SCROLL ---------- */
+@keyframes aparecer{
+    from{ opacity: 0; transform: translateY(50px) scale(.96); }
+    to  { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()){
+    .card, .search-bar{
+        animation: aparecer linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+    }
+}
+
+/* Accesibilidad: sin animaciones si el usuario lo pidió */
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ---------- STOCK + FOOTER ---------- */
 .footer-main{
     width: 100%;
-    max-width: 1050px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 15px 0 50px 0;
+    padding: 40px 0 90px 0;
 }
 
 .footer-main h2{
@@ -291,76 +537,48 @@ nav.left a.active{
     display: inline-block;
     background: #6e7683;
     color: #fff;
-    padding: 11px 24px;
+    padding: 17px 32px;
     text-decoration: none;
-    font-size: 14px;
-    border-radius: 20px;
+    font-size: 18px;
+    border-radius: 30px;
 }
 
 .footer-main .boton:hover{
     background: #838c9a;
 }
 
-footer{
-    background: #1c1c1c;
-    padding: 35px;
-    overflow: hidden;
-}
-
-.columna{
-    float: left;
-    width: 20%;
-}
-
-.columna h4{
-    font-size: 13px;
-    margin: 0 0 12px 0;
-}
-
-.columna a{
-    display: block;
-    color: #8d8d8d;
-    text-decoration: none;
-    font-size: 12px;
-    margin-bottom: 7px;
-}
-
-.columna a:hover{
-    color: #fff;
-}
-
 .stock{
     overflow: hidden;
-    margin-top: 55px;
+    margin-top: 80px;
 }
 
 .stock-texto{
     float: left;
     width: 44%;
-    padding-top: 25px;
+    padding-top: 50px;
 }
 
 .stock-texto h2{
-    font-size: 31px;
-    margin: 0 0 25px 0;
+    font-size: 46px;
+    margin: 0 0 32px 0;
 }
 
 .stock-texto label{
     display: block;
     color: #aaa;
-    font-size: 13px;
-    margin-bottom: 7px;
+    font-size: 17px;
+    margin-bottom: 10px;
 }
 
 .stock-texto select{
     width: 100%;
     background: #1c1c1c;
     border: 1px solid #444;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #fff;
-    padding: 11px;
-    margin-bottom: 18px;
-    font-size: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 18px;
 }
 
 .stock-texto .boton{
@@ -371,8 +589,212 @@ footer{
 .stock-foto{
     float: right;
     width: 52%;
-    height: 300px;
+    height: 460px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 12px;
 }
 
+footer{
+    background: #1c1c1c;
+    padding: 45px 48px 40px;
+    overflow: hidden;
+}
+
+.columna{
+    float: left;
+    width: 20%;
+}
+
+.columna h4{
+    font-size: 15px;
+    margin: 0 0 14px 0;
+}
+
+.columna a{
+    display: block;
+    color: #8d8d8d;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.columna a:hover{
+    color: #fff;
+}
+
+/* Misma fuente del header en títulos de tarjetas, búsqueda y stock */
+.card__label,
+.search-bar__label,
+.stock-texto h2{
+    font-family: var(--fuente-header);
+}
+
+/* =====================================================
+   RESPONSIVE
+   Va al final del archivo y ordenado del ancho más grande
+   al más chico: si dos reglas tienen el mismo peso, gana
+   la que está más abajo (cascada).
+   Escritorio = sin cambios. Solo se adaptan tablet y celular.
+   ===================================================== */
+
+/* Imágenes y video fluidos (Modern CSS Reset) */
+img, video{
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------- Hasta 1100px: el contenido no pega a los bordes ---------- */
+@media screen and (max-width: 1100px){
+    .footer-main{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* ---------- Tablet (hasta 900px) ---------- */
+@media screen and (max-width: 900px){
+
+    /* Header: se oculta el texto del concesionario, queda el ícono */
+    header{
+        padding: 16px 24px;
+        gap: 16px;
+    }
+    nav.left{ gap: 20px; }
+    nav.left a{ font-size: 15px; }
+    .logo-img{ height: 48px; }
+    .right .dealer span.label{ display: none; }
+
+    /* Tarjetas */
+    .tv-screen{ padding: 32px; }
+    .card__label{ font-size: 22px; }
+
+    /* Stock */
+    .stock-texto{ padding-top: 20px; }
+    .stock-texto h2{ font-size: 34px; }
+    .stock-foto{ height: 340px; }
+
+    /* Footer: de 5 columnas flotantes a una grilla de 3 */
+    footer{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 20px;
+        padding: 36px 28px;
+    }
+    .columna{
+        float: none;
+        width: auto;
+    }
+}
+
+/* ---------- Celular (hasta 600px) ---------- */
+@media screen and (max-width: 600px){
+
+    /* HEADER en dos filas con grid-template-areas
+       fila 1: logo | íconos      fila 2: menú */
+    header{
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo right"
+            "nav  nav";
+        padding: 12px 16px;
+        gap: 8px 12px;
+    }
+    .logo{ grid-area: logo; justify-self: start; }
+    .right{ grid-area: right; }
+    nav.left{
+        grid-area: nav;
+        justify-self: center;
+        gap: 20px;
+    }
+    nav.left a{ font-size: 14px; }
+    .logo-img{ height: 38px; }
+
+    /* TARJETAS: una debajo de otra */
+    .tv-screen{ padding: 32px 16px; }
+    .cards-row{
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+    .card{ min-height: 240px; }
+    .card__label{
+        font-size: 22px;
+        padding: 20px 16px 28px;
+    }
+    .card__label::after{ bottom: 16px; }
+
+    /* BARRA DE BÚSQUEDA */
+    .search-bar{
+        padding: 20px 18px;
+        gap: 12px;
+    }
+    .search-bar__icon{
+        width: 44px;
+        height: 44px;
+    }
+    .search-bar__icon svg{
+        width: 22px;
+        height: 22px;
+    }
+    .search-bar__label{ font-size: 18px; }
+    .search-bar::after{ font-size: 22px; }
+
+    /* STOCK: se apila (texto arriba, foto abajo) */
+    .footer-main{ padding-bottom: 50px; }
+    .stock{ margin-top: 30px; }
+    .stock-texto,
+    .stock-foto{
+        float: none;
+        width: 100%;
+    }
+    .stock-texto{ padding-top: 0; }
+    .stock-texto h2{
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    .stock-texto select{
+        padding: 13px;
+        font-size: 16px;
+    }
+    .footer-main .boton{
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+    .stock-foto{
+        height: auto;
+        aspect-ratio: 16 / 10;
+        margin-top: 24px;
+    }
+
+    /* FOOTER: 2 columnas */
+    footer{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 28px 20px;
+    }
+    .columna h4{ font-size: 14px; }
+    .columna a{ font-size: 13px; }
+}
+
+/* ---------- Celular chico / Mobile S (hasta 360px) ---------- */
+@media screen and (max-width: 360px){
+    header{ padding: 10px 12px; }
+    nav.left{ gap: 14px; }
+    nav.left a{ font-size: 12px; }
+    .logo-img{ height: 32px; }
+
+    .tv-screen{ padding: 24px 12px; }
+    .card{ min-height: 200px; }
+    .card__label{ font-size: 20px; }
+    .search-bar__label{ font-size: 16px; }
+
+    .stock-texto h2{ font-size: 22px; }
+
+    /* Footer en una sola columna */
+    footer{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Celular en horizontal (and + orientation) ---------- */
+@media screen and (max-width: 900px) and (orientation: landscape){
+    header{ padding: 8px 16px; }
+    .logo-img{ height: 30px; }
+}

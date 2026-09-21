@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" type = "image/png" href="logo_carpoint.png">
     <title>CarPoint</title>
 </head>
 <body>
@@ -40,6 +44,12 @@
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="./The new Porsche 911_ Exterior & Interior Design..mp4" type="video/mp4">
         </video>
+
+        <a href="#contenido" class="scroll-hint" aria-label="Bajar al contenido">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        </a>
     </div>
 
     <div class="page">
@@ -115,6 +125,32 @@
             <a href="#">Trabajá con nosotros</a>
         </div>
     </footer>
+    <script>
+        // Header que se oculta al bajar y reaparece al subir
+        const header = document.querySelector(".hero-wrapper header");
+        let ultimoScroll = window.scrollY;
+        const UMBRAL = 8;   // ignora movimientos mínimos de la rueda
 
+        window.addEventListener("scroll", () => {
+            const actual = Math.max(window.scrollY, 0);
+
+            // Fondo oscuro apenas te alejás de la parte de arriba
+            header.classList.toggle("header--solido", actual > 60);
+
+            if (Math.abs(actual - ultimoScroll) < UMBRAL) return;
+
+            if (actual > ultimoScroll && actual > 120) {
+                header.classList.add("header--oculto");      // bajando: se oculta
+            } else {
+                header.classList.remove("header--oculto");   // subiendo: aparece
+            }
+            ultimoScroll = actual;
+        }, { passive: true });
+
+        // Si navegás con teclado (Tab), el header tiene que verse
+        header.addEventListener("focusin", () => {
+            header.classList.remove("header--oculto");
+        });
+    </script>
 </body>
 </html>
