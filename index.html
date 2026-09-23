@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type = "image/png" href="logo_carpoint.png">
+    <title>CarPoint</title>
+</head>
+<body>
+
+    <div class="hero-wrapper">
+        <header>
+            <nav class="left">
+            <a href="0km.html">0 Km</a>
+            <a href="usados.html">Usados</a>
+            <a href="electricos.html">Eléctricos</a>
+            </nav>
+
+    <div class="logo">
+            <img src="./logo_carpoint.png" alt="CarPoint" class="logo-img">
+    </div>
+
+    <div class="right">
+
+        <div class="dealer">
+
+            <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+
+    <details class="dealer-menu">
+    <summary>Seleccionar un concesionario</summary>
+
+    <div class="dealer-options">
+        <a href="#">CarPoint Córdoba</a>
+        <a href="#">CarPoint Villa María</a>
+        <a href="#">CarPoint Bell Ville</a>
+        <a href="#">CarPoint Río Cuarto</a>
+    </div>
+</details>
+
+</div>
+
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </div>
+
+            </div>
+        </header>
+
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="./The new Porsche 911_ Exterior & Interior Design..mp4" type="video/mp4">
+        </video>
+
+        <a href="#contenido" class="scroll-hint" aria-label="Bajar al contenido">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="page">
+        <div class="tv-screen">
+
+            <div class="cards-row">
+                <div class="card card--about" tabindex="0">
+                    <span class="card__label">Acerca de Nosotros</span>
+                </div>
+                <div class="card card--financing" tabindex="0">
+                    <span class="card__label">Financiación</span>
+                </div>
+                <div class="card card--testdrive" tabindex="0">
+                    <span class="card__label">Test Drive</span>
+                </div>
+            </div>
+
+            <div class="search-bar" tabindex="0">
+                <div class="search-bar__icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <span class="search-bar__label">Concesionarias Cercanas</span>
+            </div>
+
+        </div>
+    </div>
+
+    <main class="footer-main">
+        <div class="stock">
+            <div class="stock-texto">
+                <h2>Vehículos nuevos en stock</h2>
+                <label for="vehiculo">Elegí el vehículo</label>
+                <select id="vehiculo" disabled>
+                    <option>Todos los vehículos</option>
+                    <option>A3 Sportback</option>
+                    <option>A3 Sedán</option>
+                    <option>S3 Sportback</option>
+                    <option>Q3</option>
+                    <option>Q5</option>
+                </select>
+                <a class="boton" href="#">119 vehículos disponibles</a>
+            </div>
+            <img class="stock-foto" src="./audiA3.jpg" alt="Audi A3 en la calle">
+        </div>
+    </main>
+
+    <footer>
+        <div class="columna">
+            <h4>Modelos</h4>
+            <a href="#">Todos los modelos</a>
+            <a href="#">Vehículos en stock</a>
+        </div>
+        <div class="columna">
+            <h4>Servicios y Accesorios</h4>
+            <a href="#">Service a domicilio</a>
+            <a href="#">Accesorios</a>
+        </div>
+        <div class="columna">
+            <h4>Cotizaciones</h4>
+            <a href="#">Whatsapp</a>
+            <a href="#">Teléfono</a>
+        </div>
+        <div class="columna">
+            <h4>Necesitás ayuda</h4>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="columna">
+            <h4>Compañía</h4>
+            <a href="#">Nosotros</a>
+            <a href="#">Trabajá con nosotros</a>
+        </div>
+    </footer>
+    <script>
+        // Header que se oculta al bajar y reaparece al subir
+        const header = document.querySelector(".hero-wrapper header");
+        let ultimoScroll = window.scrollY;
+        const UMBRAL = 8;   // ignora movimientos mínimos de la rueda
+
+        window.addEventListener("scroll", () => {
+            const actual = Math.max(window.scrollY, 0);
+
+            // Fondo oscuro apenas te alejás de la parte de arriba
+            header.classList.toggle("header--solido", actual > 60);
+
+            if (Math.abs(actual - ultimoScroll) < UMBRAL) return;
+
+            if (actual > ultimoScroll && actual > 120) {
+                header.classList.add("header--oculto");      // bajando: se oculta
+            } else {
+                header.classList.remove("header--oculto");   // subiendo: aparece
+            }
+            ultimoScroll = actual;
+        }, { passive: true });
+
+        // Si navegás con teclado (Tab), el header tiene que verse
+        header.addEventListener("focusin", () => {
+            header.classList.remove("header--oculto");
+        });
+    </script>
+</body>
+</html>
