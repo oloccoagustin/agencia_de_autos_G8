@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CarPoint - Footer</title>
+	<style>
+		body {
+			margin: 0;
+			background: #141414;
+			color: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 15px;
+		}
+
+		main {
+			width: 1050px;
+			margin: 0 auto;
+			padding: 15px 0 50px 0;
+		}
+
+		h2 {
+			font-size: 26px;
+		}
+
+		h3 {
+			font-size: 20px;
+		}
+
+		.boton {
+			display: inline-block;
+			background: #6e7683;
+			color: #fff;
+			padding: 11px 24px;
+			text-decoration: none;
+			font-size: 14px;
+			border-radius: 20px;
+			border: none;
+			cursor: pointer;
+			font-family: inherit;
+		}
+
+		.boton:hover {
+			background: #838c9a;
+		}
+
+		footer {
+			background: #1c1c1c;
+			padding: 35px;
+			overflow: hidden;
+		}
+
+		.columna {
+			float: left;
+			width: 20%;
+		}
+
+		.columna h4 {
+			font-size: 13px;
+			margin: 0 0 12px 0;
+		}
+
+		.columna a {
+			display: block;
+			color: #8d8d8d;
+			text-decoration: none;
+			font-size: 12px;
+			margin-bottom: 7px;
+		}
+
+		.columna a:hover {
+			color: #fff;
+		}
+
+		.stock {
+			overflow: hidden;
+			margin-top: 55px;
+		}
+
+		.stock-texto {
+			float: left;
+			width: 44%;
+			padding-top: 25px;
+		}
+
+		.stock-texto h2 {
+			font-size: 31px;
+			margin: 0 0 25px 0;
+		}
+
+		.stock-texto label {
+			display: block;
+			color: #aaa;
+			font-size: 13px;
+			margin-bottom: 7px;
+		}
+
+		.stock-texto select {
+			width: 100%;
+			background: #1c1c1c;
+			border: 1px solid #444;
+			border-radius: 6px;
+			color: #fff;
+			padding: 11px;
+			margin-bottom: 18px;
+			font-size: 14px;
+		}
+
+		.stock-texto .boton {
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+
+		.stock-foto {
+			float: right;
+			width: 52%;
+			height: 300px;
+			object-fit: cover;
+			border-radius: 6px;
+		}
+
+		dialog {
+			width: 640px;
+			max-width: calc(100% - 32px);
+			max-height: 80vh;
+			background: #1c1c1c;
+			color: #fff;
+			border: 1px solid #333;
+			border-radius: 8px;
+			padding: 30px;
+			box-sizing: border-box;
+		}
+
+		dialog::backdrop {
+			background: rgba(0, 0, 0, 0.7);
+		}
+
+		dialog h3 {
+			margin: 0 0 20px 0;
+			padding-right: 30px;
+		}
+
+		dialog p {
+			color: #bbb;
+			line-height: 1.5;
+		}
+
+		.cerrar {
+			position: absolute;
+			top: 18px;
+			right: 20px;
+			background: none;
+			border: none;
+			color: #8d8d8d;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.cerrar:hover {
+			color: #fff;
+		}
+
+		.lista {
+			list-style: none;
+			margin: 0 0 20px 0;
+			padding: 0;
+		}
+
+		.lista li {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 15px;
+			padding: 12px 0;
+			border-bottom: 1px solid #2c2c2c;
+			font-size: 14px;
+		}
+
+		.lista small {
+			display: block;
+			color: #8d8d8d;
+			font-size: 12px;
+			margin-top: 4px;
+		}
+
+		.lista .boton {
+			padding: 7px 16px;
+			font-size: 12px;
+			white-space: nowrap;
+		}
+
+		.precio {
+			color: #fff;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.formulario label {
+			display: block;
+			color: #aaa;
+			font-size: 13px;
+			margin-bottom: 7px;
+		}
+
+		.formulario input,
+		.formulario select,
+		.formulario textarea {
+			width: 100%;
+			box-sizing: border-box;
+			background: #141414;
+			border: 1px solid #444;
+			border-radius: 6px;
+			color: #fff;
+			padding: 11px;
+			margin-bottom: 16px;
+			font-size: 14px;
+			font-family: inherit;
+		}
+
+		.formulario textarea {
+			height: 90px;
+			resize: vertical;
+		}
+
+		.mensaje-ok {
+			background: #243326;
+			border: 1px solid #3f6b45;
+			color: #cfe8d2;
+			border-radius: 6px;
+			padding: 14px;
+			font-size: 14px;
+			margin-bottom: 16px;
+		}
+
+		.dato-contacto {
+			font-size: 22px;
+			font-weight: bold;
+			margin: 0 0 8px 0;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="stock">
+			<div class="stock-texto">
+				<h2>Vehículos nuevos en stock</h2>
+				<label for="vehiculo">Elegí el vehículo</label>
+				<select id="vehiculo">
+					<option value="">Todos los vehículos</option>
+					<option>A3 Sportback</option>
+					<option>A3 Sedán</option>
+					<option>S3 Sportback</option>
+					<option>Q3</option>
+					<option>Q5</option>
+				</select>
+				<button class="boton" id="boton-stock" type="button">119 vehículos disponibles</button>
+			</div>
+			<img class="stock-foto" src="img/stock.jpg" alt="Audi A3 en la calle">
+		</div>
+	</main>
+
+	<footer>
+		<div class="columna">
+			<h4>Modelos</h4>
+			<a href="#" data-abrir="modal-modelos">Todos los modelos</a>
+			<a href="#" data-abrir="modal-stock">Vehículos en stock</a>
+		</div>
+		<div class="columna">
+			<h4>Servicios y Accesorios</h4>
+			<a href="#" data-abrir="modal-service">Service a domicilio</a>
+			<a href="#" data-abrir="modal-accesorios">Accesorios</a>
+		</div>
+		<div class="columna">
+			<h4>Cotizaciones</h4>
+			<a href="https://wa.me/5493515550123?text=Hola%20CarPoint%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener">Whatsapp</a>
+			<a href="#" data-abrir="modal-telefono">Teléfono</a>
+		</div>
+		<div class="columna">
+			<h4>Necesitás ayuda</h4>
+			<a href="#" data-abrir="modal-contacto">Contacto</a>
+		</div>
+		<div class="columna">
+			<h4>Compañía</h4>
+			<a href="#" data-abrir="modal-nosotros">Nosotros</a>
+			<a href="#" data-abrir="modal-empleo">Trabajá con nosotros</a>
+		</div>
+	</footer>
+
+	<dialog id="modal-stock">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3 id="stock-titulo">Vehículos en stock</h3>
+		<ul class="lista" id="stock-lista"></ul>
+	</dialog>
+
+	<dialog id="modal-modelos">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Todos los modelos</h3>
+		<ul class="lista" id="modelos-lista"></ul>
+	</dialog>
+
+	<dialog id="modal-service">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Service a domicilio</h3>
+		<p>Nuestros técnicos van a tu casa u oficina. Completá el formulario y te confirmamos el turno.</p>
+		<form class="formulario" id="form-service">
+			<label for="service-nombre">Nombre y apellido</label>
+			<input id="service-nombre" required>
+			<label for="service-telefono">Teléfono</label>
+			<input id="service-telefono" type="tel" required>
+			<label for="service-direccion">Dirección</label>
+			<input id="service-direccion" required>
+			<label for="service-modelo">Modelo</label>
+			<select id="service-modelo" required>
+				<option>A3 Sportback</option>
+				<option>A3 Sedán</option>
+				<option>S3 Sportback</option>
+				<option>Q3</option>
+				<option>Q5</option>
+			</select>
+			<label for="service-fecha">Fecha preferida</label>
+			<input id="service-fecha" type="date" required>
+			<button class="boton" type="submit">Solicitar turno</button>
+		</form>
+	</dialog>
+
+	<dialog id="modal-accesorios">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Accesorios</h3>
+		<ul class="lista" id="accesorios-lista"></ul>
+	</dialog>
+
+	<dialog id="modal-telefono">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Cotizaciones por teléfono</h3>
+		<p class="dato-contacto">(0351) 555-0123</p>
+		<p>Lunes a viernes de 9 a 19 h · Sábados de 9 a 13 h</p>
+		<a class="boton" href="tel:+543515550123">Llamar ahora</a>
+	</dialog>
+
+	<dialog id="modal-contacto">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Contacto</h3>
+		<p>Av. Colón 1250, Córdoba · info@carpoint.com.ar</p>
+		<form class="formulario" id="form-contacto">
+			<label for="contacto-nombre">Nombre y apellido</label>
+			<input id="contacto-nombre" required>
+			<label for="contacto-email">Email</label>
+			<input id="contacto-email" type="email" required>
+			<label for="contacto-mensaje">Mensaje</label>
+			<textarea id="contacto-mensaje" required></textarea>
+			<button class="boton" type="submit">Enviar consulta</button>
+		</form>
+	</dialog>
+
+	<dialog id="modal-nosotros">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Nosotros</h3>
+		<p>CarPoint es una concesionaria oficial fundada en 1998 en la ciudad de Córdoba. Desde hace más de 25 años acompañamos a nuestros clientes en la compra de su vehículo nuevo o usado, con asesoramiento personalizado y un servicio de posventa de primer nivel.</p>
+		<p>Contamos con un showroom de 2.500 m², taller propio con 18 boxes y un equipo de más de 60 personas.</p>
+		<ul class="lista">
+			<li><span>Vehículos entregados</span><span class="precio">+12.000</span></li>
+			<li><span>Clientes satisfechos</span><span class="precio">97%</span></li>
+			<li><span>Sucursales</span><span class="precio">3</span></li>
+		</ul>
+	</dialog>
+
+	<dialog id="modal-empleo">
+		<button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+		<h3>Trabajá con nosotros</h3>
+		<ul class="lista" id="empleo-lista"></ul>
+		<form class="formulario" id="form-empleo">
+			<label for="empleo-nombre">Nombre y apellido</label>
+			<input id="empleo-nombre" required>
+			<label for="empleo-email">Email</label>
+			<input id="empleo-email" type="email" required>
+			<label for="empleo-puesto">Puesto</label>
+			<select id="empleo-puesto" required></select>
+			<label for="empleo-cv">CV (PDF)</label>
+			<input id="empleo-cv" type="file" accept=".pdf" required>
+			<button class="boton" type="submit">Postularme</button>
+		</form>
+	</dialog>
+
+	<script>
+		const modelos = [
+			{ nombre: "A3 Sportback", cantidad: 32, precio: 48500000, versiones: ["35 TFSI", "35 TFSI Advanced", "35 TFSI S line"] },
+			{ nombre: "A3 Sedán", cantidad: 28, precio: 49900000, versiones: ["35 TFSI", "35 TFSI Advanced", "35 TFSI S line"] },
+			{ nombre: "S3 Sportback", cantidad: 14, precio: 78900000, versiones: ["2.0 TFSI quattro"] },
+			{ nombre: "Q3", cantidad: 25, precio: 62300000, versiones: ["35 TFSI", "40 TFSI quattro", "Sportback 35 TFSI"] },
+			{ nombre: "Q5", cantidad: 20, precio: 89700000, versiones: ["45 TFSI quattro", "45 TFSI quattro S line", "Sportback 45 TFSI"] }
+		];
+
+		const colores = ["Blanco Glaciar", "Negro Mito", "Gris Daytona", "Azul Navarra", "Plata Florete", "Rojo Tango"];
+
+		const accesorios = [
+			{ nombre: "Barras de techo", detalle: "Aluminio, carga máxima 75 kg", precio: 980000 },
+			{ nombre: "Juego de alfombras premium", detalle: "Goma con borde elevado", precio: 185000 },
+			{ nombre: "Portabicicletas", detalle: "Para barras de techo", precio: 420000 },
+			{ nombre: "Llantas 18\" 5 rayos", detalle: "Juego de 4 unidades", precio: 2350000 },
+			{ nombre: "Cargador inalámbrico", detalle: "Compatible con Qi", precio: 150000 },
+			{ nombre: "Cofre de techo 360 L", detalle: "Negro brillante con cerradura", precio: 1290000 }
+		];
+
+		const puestos = [
+			{ nombre: "Asesor/a comercial", detalle: "Showroom Av. Colón · Full time" },
+			{ nombre: "Técnico/a mecánico/a", detalle: "Taller · Full time" },
+			{ nombre: "Recepcionista de servicio", detalle: "Posventa · Part time" }
+		];
+
+		const formatoPrecio = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
+
+		const stock = modelos.flatMap(function (modelo, m) {
+			return Array.from({ length: modelo.cantidad }, function (_, i) {
+				const version = modelo.versiones[i % modelo.versiones.length];
+				return {
+					modelo: modelo.nombre,
+					version: version,
+					color: colores[(i + m) % colores.length],
+					anio: i % 4 === 0 ? 2025 : 2026,
+					precio: modelo.precio + (i % modelo.versiones.length) * 3200000
+				};
+			});
+		});
+
+		const selectVehiculo = document.getElementById("vehiculo");
+		const botonStock = document.getElementById("boton-stock");
+
+		function filtrarStock() {
+			const elegido = selectVehiculo.value;
+			return elegido ? stock.filter(function (v) { return v.modelo === elegido; }) : stock;
+		}
+
+		function actualizarBoton() {
+			const cantidad = filtrarStock().length;
+			botonStock.textContent = cantidad + (cantidad === 1 ? " vehículo disponible" : " vehículos disponibles");
+		}
+
+		function abrir(id) {
+			const modal = document.getElementById(id);
+			if (id === "modal-stock") {
+				renderStock();
+			}
+			modal.showModal();
+		}
+
+		function renderStock() {
+			const lista = filtrarStock();
+			document.getElementById("stock-titulo").textContent = (selectVehiculo.value || "Vehículos en stock") + " · " + lista.length + " disponibles";
+			document.getElementById("stock-lista").innerHTML = lista.map(function (v) {
+				return "<li><div>" + v.modelo + " " + v.version + "<small>" + v.color + " · " + v.anio + " · 0 km</small></div>" +
+					"<span class=\"precio\">" + formatoPrecio.format(v.precio) + "</span>" +
+					"<button class=\"boton\" type=\"button\" data-consultar=\"" + v.modelo + " " + v.version + " " + v.color + "\">Consultar</button></li>";
+			}).join("");
+		}
+
+		function consultar(texto) {
+			document.querySelectorAll("dialog[open]").forEach(function (d) { d.close(); });
+			reiniciarFormulario(document.getElementById("form-contacto"));
+			document.getElementById("contacto-mensaje").value = "Hola, quiero consultar por: " + texto + ".";
+			abrir("modal-contacto");
+		}
+
+		function mostrarOk(form, texto) {
+			const aviso = document.createElement("div");
+			aviso.className = "mensaje-ok";
+			aviso.textContent = texto;
+			form.hidden = true;
+			form.parentNode.insertBefore(aviso, form);
+		}
+
+		function reiniciarFormulario(form) {
+			const aviso = form.parentNode.querySelector(".mensaje-ok");
+			if (aviso) {
+				aviso.remove();
+			}
+			form.reset();
+			form.hidden = false;
+		}
+
+		document.getElementById("modelos-lista").innerHTML = modelos.map(function (m) {
+			return "<li><div>" + m.nombre + "<small>" + m.versiones.length + (m.versiones.length === 1 ? " versión" : " versiones") + " · " + m.cantidad + " en stock</small></div>" +
+				"<span class=\"precio\">Desde " + formatoPrecio.format(m.precio) + "</span>" +
+				"<button class=\"boton\" type=\"button\" data-ver-modelo=\"" + m.nombre + "\">Ver stock</button></li>";
+		}).join("");
+
+		document.getElementById("accesorios-lista").innerHTML = accesorios.map(function (a) {
+			return "<li><div>" + a.nombre + "<small>" + a.detalle + "</small></div>" +
+				"<span class=\"precio\">" + formatoPrecio.format(a.precio) + "</span>" +
+				"<button class=\"boton\" type=\"button\" data-consultar=\"" + a.nombre.replace(/"/g, "&quot;") + "\">Consultar</button></li>";
+		}).join("");
+
+		document.getElementById("empleo-lista").innerHTML = puestos.map(function (p) {
+			return "<li><div>" + p.nombre + "<small>" + p.detalle + "</small></div></li>";
+		}).join("");
+
+		document.getElementById("empleo-puesto").innerHTML = puestos.map(function (p) {
+			return "<option>" + p.nombre + "</option>";
+		}).join("");
+
+		document.getElementById("service-fecha").min = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+
+		selectVehiculo.addEventListener("change", actualizarBoton);
+		botonStock.addEventListener("click", function () { abrir("modal-stock"); });
+
+		document.querySelectorAll("[data-abrir]").forEach(function (enlace) {
+			enlace.addEventListener("click", function (e) {
+				e.preventDefault();
+				const id = enlace.dataset.abrir;
+				if (id === "modal-stock") {
+					selectVehiculo.value = "";
+					actualizarBoton();
+				}
+				const form = document.querySelector("#" + id + " form");
+				if (form) {
+					reiniciarFormulario(form);
+				}
+				abrir(id);
+			});
+		});
+
+		document.querySelectorAll("dialog").forEach(function (modal) {
+			modal.addEventListener("click", function (e) {
+				if (e.target === modal || e.target.classList.contains("cerrar")) {
+					modal.close();
+				}
+				const consulta = e.target.dataset.consultar;
+				if (consulta) {
+					consultar(consulta);
+				}
+				const verModelo = e.target.dataset.verModelo;
+				if (verModelo) {
+					modal.close();
+					selectVehiculo.value = verModelo;
+					actualizarBoton();
+					abrir("modal-stock");
+				}
+			});
+		});
+
+		document.getElementById("form-service").addEventListener("submit", function (e) {
+			e.preventDefault();
+			const nombre = document.getElementById("service-nombre").value.split(" ")[0];
+			const fecha = new Date(document.getElementById("service-fecha").value + "T00:00").toLocaleDateString("es-AR");
+			const turno = "SV-" + Math.floor(10000 + Math.random() * 90000);
+			mostrarOk(this, "¡Gracias " + nombre + "! Tu turno " + turno + " quedó reservado para el " + fecha + ". Te vamos a llamar para confirmar el horario.");
+		});
+
+		document.getElementById("form-contacto").addEventListener("submit", function (e) {
+			e.preventDefault();
+			const nombre = document.getElementById("contacto-nombre").value.split(" ")[0];
+			const email = document.getElementById("contacto-email").value;
+			mostrarOk(this, "¡Gracias " + nombre + "! Recibimos tu consulta y te vamos a responder a " + email + " dentro de las próximas 24 horas.");
+		});
+
+		document.getElementById("form-empleo").addEventListener("submit", function (e) {
+			e.preventDefault();
+			const nombre = document.getElementById("empleo-nombre").value.split(" ")[0];
+			const puesto = document.getElementById("empleo-puesto").value;
+			mostrarOk(this, "¡Gracias " + nombre + "! Recibimos tu postulación para " + puesto + ". Si tu perfil coincide te vamos a contactar.");
+		});
+
+		actualizarBoton();
+	</script>
+</body>
+</html>
