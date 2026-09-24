@@ -1,0 +1,245 @@
+/* =====================================================
+   RED DE CONCESIONARIAS - estilo CarPoint
+   Se carga DESPUÉS de index.css y usa sus variables:
+   --red, --red-dark, --text-dim, --fuente-header
+   ===================================================== */
+
+.red{
+    background: #0e0e12;
+    color: #fff;
+    font-family: var(--fuente-header);
+    padding-bottom: 90px;
+}
+
+/* ---------- BANNER ---------- */
+.red-banner{
+    height: 42vh;
+    min-height: 260px;
+    background-color: #0e0e12;
+    background-image:
+        linear-gradient(180deg, rgba(14,14,18,.15) 0%, rgba(14,14,18,1) 100%),
+        url('buscar-concesionaria.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------- TÍTULO ---------- */
+.red-titulo{
+    max-width: 760px;
+    margin: -20px auto 50px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.red-titulo h1{
+    font-size: 44px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.red-titulo h1::after{
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 16px auto 0;
+    border-radius: 2px;
+    background: var(--red);
+}
+
+.red-titulo p{
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-dim);
+}
+
+/* ---------- PANEL + MAPA ---------- */
+.red-layout{
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.red-panel{
+    display: flex;
+    flex-direction: column;
+    height: 620px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.05);
+}
+
+/* Buscador */
+.red-buscar label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    padding: 0 18px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    transition: border-color .25s ease;
+}
+
+.red-buscar label:focus-within{
+    border-color: var(--red);
+}
+
+.red-buscar svg{
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--text-dim);
+}
+
+.red-buscar input{
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.red-buscar input::placeholder{ color: #a4a4ae; }
+
+.red-buscar small{
+    display: block;
+    margin: 8px 0 0 18px;
+    font-size: 12px;
+    color: #a4a4ae;
+}
+
+/* Usar ubicación actual */
+.red-ubicacion{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 22px 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.red-ubicacion svg{ width: 22px; height: 22px; }
+.red-ubicacion:hover:not(:disabled){ color: var(--red); }
+.red-ubicacion:disabled{ opacity: .5; cursor: not-allowed; }
+
+/* Lista de sucursales (con scroll propio) */
+.red-lista{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.red-item{
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.04);
+    transition: border-color .25s ease, background .25s ease, transform .25s ease;
+}
+
+.red-item:hover{
+    background: rgba(255,255,255,.08);
+    transform: translateX(4px);
+}
+
+/* Queda resaltada la sucursal cuyo botón acabás de tocar */
+.red-item:focus-within{
+    border-color: var(--red);
+    background: rgba(230,57,70,.12);
+}
+
+.red-item h3{
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.red-item p{
+    font-size: 14px;
+    color: var(--text-dim);
+}
+
+.red-servicios{
+    margin-top: 4px;
+    font-size: 12px !important;
+    color: #a4a4ae !important;
+}
+
+.red-ver{
+    display: inline-block;
+    margin-top: 14px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--red);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .25s ease;
+}
+
+.red-ver:hover{ background: var(--red-dark); }
+
+.red-todas{
+    margin-top: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-dim);
+    text-decoration: underline;
+}
+
+.red-todas:hover{ color: #fff; }
+
+/* Mapa: el filtro invierte los colores del mapa de OpenStreetMap
+   para que quede oscuro como el resto de la página.
+   Si lo querés claro, borrá la línea "filter". */
+.red-mapa{
+    height: 620px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+    background: #0b2a3d;
+}
+
+.red-mapa iframe{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 900px){
+    .red-layout{ grid-template-columns: 1fr; }
+    .red-panel{ height: auto; }
+    .red-lista{ max-height: 420px; }
+    .red-mapa{ height: 420px; }
+    .red-titulo h1{ font-size: 34px; }
+}
+
+@media screen and (max-width: 600px){
+    .red-banner{ min-height: 200px; }
+    .red-layout{ padding: 0 16px; }
+    .red-titulo{ padding: 0 16px; }
+    .red-titulo h1{ font-size: 28px; }
+    .red-titulo p{ font-size: 16px; }
+    .red-mapa{ height: 340px; }
+}

@@ -798,3 +798,13 @@ img, video{
     header{ padding: 8px 16px; }
     .logo-img{ height: 30px; }
 }
+
+a.card{
+    text-decoration: none;
+    color: inherit;
+}
+
+a.card, a.search-bar{
+    text-decoration: none;
+    color: inherit;
+}

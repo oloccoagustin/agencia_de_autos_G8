@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Red de Concesionarias | CarPoint</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="concesionarias.css">
+    <link rel="icon" type="image/png" href="logo_carpoint.png">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="left">
+            <a href="0km.html">0 Km</a>
+            <a href="usados.html">Usados</a>
+            <a href="electricos.html">Eléctricos</a>
+        </nav>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="./logo_carpoint.png" alt="CarPoint" class="logo-img">
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="dealer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <details class="dealer-menu">
+                    <summary>Seleccionar un concesionario</summary>
+                    <div class="dealer-options">
+                        <a href="#">CarPoint Córdoba</a>
+                        <a href="#">CarPoint Villa María</a>
+                        <a href="#">CarPoint Bell Ville</a>
+                        <a href="#">CarPoint Río Cuarto</a>
+                    </div>
+                </details>
+            </div>
+            <div class="search-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="red">
+
+        <!-- BANNER -->
+        <div class="red-banner"></div>
+
+        <div class="red-titulo">
+            <h1>Red de Concesionarias</h1>
+            <p>Encontrá la sucursal CarPoint más cercana y visitanos. Te esperamos con toda la gama de 0 Km, usados y eléctricos.</p>
+        </div>
+
+        <!-- PANEL + MAPA -->
+        <div class="red-layout">
+
+            <aside class="red-panel">
+
+                <form class="red-buscar" action="#" role="search">
+                    <label>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="search" name="q" list="sucursales" placeholder="Buscar concesionaria" autocomplete="off" aria-label="Buscar concesionaria">
+                    </label>
+                    <datalist id="sucursales">
+                    <option value="CarPoint Córdoba"></option>
+                    <option value="Córdoba Capital (CP 5000)"></option>
+                    <option value="CarPoint Villa María"></option>
+                    <option value="Villa María (CP 5900)"></option>
+                    <option value="CarPoint Bell Ville"></option>
+                    <option value="Bell Ville (CP 2550)"></option>
+                    <option value="CarPoint Río Cuarto"></option>
+                    <option value="Río Cuarto (CP 5800)"></option>
+                    </datalist>
+                    <small>Nombre, ciudad o código postal</small>
+                </form>
+
+                <button type="button" class="red-ubicacion" disabled title="Disponible próximamente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="8"></circle>
+                        <circle cx="12" cy="12" r="2.5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="5"></line>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="1" y1="12" x2="5" y2="12"></line>
+                        <line x1="19" y1="12" x2="23" y2="12"></line>
+                    </svg>
+                    Usar ubicación actual
+                </button>
+
+                <div class="red-lista">
+                    <article class="red-item">
+                        <h3>CarPoint Córdoba</h3>
+                        <p>Córdoba Capital · CP 5000</p>
+                        <p class="red-servicios">0 Km · Usados · Eléctricos</p>
+                        <a href="https://www.openstreetmap.org/export/embed.html?bbox=-64.2388%2C-31.470100000000002%2C-64.1388%2C-31.3701&amp;layer=mapnik&amp;marker=-31.4201%2C-64.1888" target="mapa" class="red-ver">Ver en el mapa</a>
+                    </article>
+                    <article class="red-item">
+                        <h3>CarPoint Villa María</h3>
+                        <p>Villa María · CP 5900</p>
+                        <p class="red-servicios">0 Km · Usados · Eléctricos</p>
+                        <a href="https://www.openstreetmap.org/export/embed.html?bbox=-63.2902%2C-32.457499999999996%2C-63.190200000000004%2C-32.3575&amp;layer=mapnik&amp;marker=-32.4075%2C-63.2402" target="mapa" class="red-ver">Ver en el mapa</a>
+                    </article>
+                    <article class="red-item">
+                        <h3>CarPoint Bell Ville</h3>
+                        <p>Bell Ville · CP 2550</p>
+                        <p class="red-servicios">0 Km · Usados · Eléctricos</p>
+                        <a href="https://www.openstreetmap.org/export/embed.html?bbox=-62.738099999999996%2C-32.6772%2C-62.6381%2C-32.577200000000005&amp;layer=mapnik&amp;marker=-32.6272%2C-62.6881" target="mapa" class="red-ver">Ver en el mapa</a>
+                    </article>
+                    <article class="red-item">
+                        <h3>CarPoint Río Cuarto</h3>
+                        <p>Río Cuarto · CP 5800</p>
+                        <p class="red-servicios">0 Km · Usados · Eléctricos</p>
+                        <a href="https://www.openstreetmap.org/export/embed.html?bbox=-64.3993%2C-33.173199999999994%2C-64.2993%2C-33.0732&amp;layer=mapnik&amp;marker=-33.1232%2C-64.3493" target="mapa" class="red-ver">Ver en el mapa</a>
+                    </article>
+                    <a href="https://www.openstreetmap.org/export/embed.html?bbox=-65.6%2C-33.6%2C-62.0%2C-30.8&amp;layer=mapnik" target="mapa" class="red-todas">Ver todas las sucursales</a>
+                </div>
+
+            </aside>
+
+            <div class="red-mapa">
+                <iframe name="mapa" title="Mapa de las sucursales de CarPoint" src="https://www.openstreetmap.org/export/embed.html?bbox=-65.6%2C-33.6%2C-62.0%2C-30.8&amp;layer=mapnik" loading="lazy"></iframe>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="columna">
+            <h4>Modelos</h4>
+            <a href="#">Todos los modelos</a>
+            <a href="#">Vehículos en stock</a>
+        </div>
+        <div class="columna">
+            <h4>Servicios y Accesorios</h4>
+            <a href="#">Service a domicilio</a>
+            <a href="#">Accesorios</a>
+        </div>
+        <div class="columna">
+            <h4>Cotizaciones</h4>
+            <a href="#">Whatsapp</a>
+            <a href="#">Teléfono</a>
+        </div>
+        <div class="columna">
+            <h4>Necesitás ayuda</h4>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="columna">
+            <h4>Compañía</h4>
+            <a href="#">Nosotros</a>
+            <a href="#">Trabajá con nosotros</a>
+        </div>
+    </footer>
+</body>
+
+</html>

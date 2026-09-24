@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Financiación | CarPoint</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="financiacion.css">
+    <link rel="icon" type="image/png" href="logo_carpoint.png">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="left">
+            <a href="0km.html">0 Km</a>
+            <a href="usados.html">Usados</a>
+            <a href="electricos.html">Eléctricos</a>
+        </nav>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="./logo_carpoint.png" alt="CarPoint" class="logo-img">
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="dealer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <details class="dealer-menu">
+                    <summary>Seleccionar un concesionario</summary>
+                    <div class="dealer-options">
+                        <a href="#">CarPoint Córdoba</a>
+                        <a href="#">CarPoint Villa María</a>
+                        <a href="#">CarPoint Bell Ville</a>
+                        <a href="#">CarPoint Río Cuarto</a>
+                    </div>
+                </details>
+            </div>
+            <div class="search-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="formulario-pagina">
+
+        <div class="formulario-cabecera">
+            <h1>Financiación</h1>
+            <p>Completá tus datos y un asesor de CarPoint se comunica con vos para armar tu plan.</p>
+        </div>
+
+        <form class="form-carpoint" id="form-financiacion" novalidate>
+
+            <div class="form-grid">
+                <div class="campo campo--select flotante">
+                    <select id="modelo" name="modelo" required>
+                        <option value="">Seleccionar</option>
+                        <optgroup label="Alfa Romeo">
+                            <option>Giulia</option>
+                            <option>Stelvio</option>
+                        </optgroup>
+                        <optgroup label="Audi">
+                            <option>A3 Sedán</option>
+                            <option>A3 Sportback</option>
+                            <option>A5 Sportback</option>
+                            <option>e-tron GT</option>
+                            <option>Q3</option>
+                            <option>Q5</option>
+                            <option>Q6 e-tron</option>
+                            <option>Q8</option>
+                            <option>RS 3</option>
+                            <option>RS 5</option>
+                            <option>RS 6 Avant</option>
+                            <option>S3 Sportback</option>
+                        </optgroup>
+                        <optgroup label="BMW">
+                            <option>330i</option>
+                            <option>i4</option>
+                            <option>iX</option>
+                            <option>M2</option>
+                            <option>M3 Competition</option>
+                            <option>M4 Competition</option>
+                            <option>X4</option>
+                            <option>X5</option>
+                            <option>X6</option>
+                        </optgroup>
+                        <optgroup label="Ferrari">
+                            <option>296 GTB</option>
+                            <option>Purosangue</option>
+                            <option>Roma</option>
+                        </optgroup>
+                        <optgroup label="Lamborghini">
+                            <option>Revuelto</option>
+                            <option>Urus</option>
+                        </optgroup>
+                        <optgroup label="Land Rover">
+                            <option>Defender</option>
+                            <option>Range Rover</option>
+                            <option>Range Rover Evoque</option>
+                            <option>Range Rover Sport</option>
+                            <option>Range Rover Velar</option>
+                        </optgroup>
+                        <optgroup label="Maserati">
+                            <option>Grecale</option>
+                            <option>GranTurismo</option>
+                        </optgroup>
+                        <optgroup label="Mercedes-Benz">
+                            <option>AMG A 45</option>
+                            <option>AMG C 63</option>
+                            <option>AMG GT</option>
+                            <option>C 300</option>
+                            <option>Clase G</option>
+                            <option>EQE</option>
+                            <option>EQS SUV</option>
+                            <option>GLC</option>
+                            <option>GLE</option>
+                        </optgroup>
+                        <optgroup label="Porsche">
+                            <option>911 Carrera</option>
+                            <option>911 Turbo S</option>
+                            <option>Cayenne</option>
+                            <option>Cayman</option>
+                            <option>Macan</option>
+                            <option>Macan Electric</option>
+                            <option>Taycan</option>
+                        </optgroup>
+                        <optgroup label="Volvo">
+                            <option>EX30</option>
+                            <option>XC60</option>
+                            <option>XC90</option>
+                        </optgroup>
+                    </select>
+                    <label for="modelo">Modelos</label>
+                    <span class="error">Seleccioná un modelo.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="text" id="nombre" name="nombre" placeholder=" " required minlength="2" maxlength="40" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]{2,40}" autocomplete="given-name">
+                    <label for="nombre">Nombre</label>
+                    <span class="error">Ingresá tu nombre.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="text" id="apellido" name="apellido" placeholder=" " required minlength="2" maxlength="40" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' -]{2,40}" autocomplete="family-name">
+                    <label for="apellido">Apellido</label>
+                    <span class="error">Ingresá tu apellido.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="text" id="dni" name="dni" placeholder=" " required inputmode="numeric" maxlength="8" pattern="[0-9]{7,8}">
+                    <label for="dni">DNI</label>
+                    <span class="error">Ingresá tu DNI sin puntos.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="tel" id="celular" name="celular" placeholder=" " required inputmode="numeric" maxlength="13" pattern="[0-9]{10,13}" autocomplete="tel">
+                    <label for="celular">Celular</label>
+                    <span class="error">Ingresá tu número de celular completo.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
+                    <label for="email">E-mail</label>
+                    <span class="error">Ingresá un e-mail válido.</span>
+                </div>
+                <div class="campo campo--select flotante">
+                    <select id="provincia" name="provincia" required>
+                        <option value="">Seleccionar</option>
+                        <option>Buenos Aires</option>
+                        <option>Catamarca</option>
+                        <option>Chaco</option>
+                        <option>Chubut</option>
+                        <option>Ciudad Autónoma de Buenos Aires</option>
+                        <option>Córdoba</option>
+                        <option>Corrientes</option>
+                        <option>Entre Ríos</option>
+                        <option>Formosa</option>
+                        <option>Jujuy</option>
+                        <option>La Pampa</option>
+                        <option>La Rioja</option>
+                        <option>Mendoza</option>
+                        <option>Misiones</option>
+                        <option>Neuquén</option>
+                        <option>Río Negro</option>
+                        <option>Salta</option>
+                        <option>San Juan</option>
+                        <option>San Luis</option>
+                        <option>Santa Cruz</option>
+                        <option>Santa Fe</option>
+                        <option>Santiago del Estero</option>
+                        <option>Tierra del Fuego</option>
+                        <option>Tucumán</option>
+                    </select>
+                    <label for="provincia">Provincia</label>
+                    <span class="error">Seleccioná tu provincia.</span>
+                </div>
+                <div class="campo flotante">
+                    <input type="text" id="ciudad" name="ciudad" placeholder=" " required minlength="2" maxlength="60">
+                    <label for="ciudad">Ciudad</label>
+                    <span class="error">Ingresá tu ciudad.</span>
+                </div>
+                <div class="campo campo--select flotante">
+                    <select id="concesionario" name="concesionario" required>
+                        <option value="">Seleccionar</option>
+                        <option>CarPoint Córdoba</option>
+                        <option>CarPoint Villa María</option>
+                        <option>CarPoint Bell Ville</option>
+                        <option>CarPoint Río Cuarto</option>
+                    </select>
+                    <label for="concesionario">Concesionario</label>
+                    <span class="error">Seleccioná un concesionario.</span>
+                </div>
+                <div class="campo campo--select flotante">
+                    <select id="fecha" name="fecha" required>
+                        <option value="">Seleccionar</option>
+                        <option>Este mes</option>
+                        <option>En 1 a 3 meses</option>
+                        <option>En 3 a 6 meses</option>
+                        <option>En más de 6 meses</option>
+                    </select>
+                    <label for="fecha">Fecha estimada de compra</label>
+                    <span class="error">Seleccioná una fecha estimada.</span>
+                </div>
+                <div class="campo campo--select flotante">
+                    <select id="cuotas" name="cuotas" required>
+                        <option value="">Seleccionar</option>
+                        <option>12 cuotas</option>
+                        <option>24 cuotas</option>
+                        <option>36 cuotas</option>
+                        <option>48 cuotas</option>
+                        <option>60 cuotas</option>
+                    </select>
+                    <label for="cuotas">Cantidad de cuotas</label>
+                    <span class="error">Seleccioná la cantidad de cuotas.</span>
+                </div>
+                <div class="campo campo--select flotante">
+                    <select id="anticipo" name="anticipo" required>
+                        <option value="">Seleccionar</option>
+                        <option>10%</option>
+                        <option>20%</option>
+                        <option>30%</option>
+                        <option>40%</option>
+                        <option>50% o más</option>
+                    </select>
+                    <label for="anticipo">Anticipo estimado</label>
+                    <span class="error">Seleccioná el anticipo.</span>
+                </div>
+            </div>
+
+            <div class="campo campo--terminos">
+                <label>
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    Acepto los términos y condiciones de CarPoint
+                </label>
+                <span class="error">Aceptá los términos y condiciones para continuar.</span>
+            </div>
+
+            <div class="form-acciones">
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </div>
+
+        </form>
+
+        <div class="form-exito" id="exito" hidden>
+            <h2>¡Listo! Recibimos tu solicitud</h2>
+            <p>Un asesor de CarPoint te va a contactar a la brevedad.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="columna">
+            <h4>Modelos</h4>
+            <a href="#">Todos los modelos</a>
+            <a href="#">Vehículos en stock</a>
+        </div>
+        <div class="columna">
+            <h4>Servicios y Accesorios</h4>
+            <a href="#">Service a domicilio</a>
+            <a href="#">Accesorios</a>
+        </div>
+        <div class="columna">
+            <h4>Cotizaciones</h4>
+            <a href="#">Whatsapp</a>
+            <a href="#">Teléfono</a>
+        </div>
+        <div class="columna">
+            <h4>Necesitás ayuda</h4>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="columna">
+            <h4>Compañía</h4>
+            <a href="#">Nosotros</a>
+            <a href="#">Trabajá con nosotros</a>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById("form-financiacion");
+        const campos = [...form.querySelectorAll(".campo")];
+        const control = c => c.querySelector("input, select");
+
+        // Marca el campo en rojo y muestra su mensaje si no cumple las reglas del HTML
+        function validar(c){
+            const ok = control(c).checkValidity();
+            c.classList.toggle("invalido", !ok);
+            return ok;
+        }
+
+        campos.forEach(c => {
+            const el = control(c);
+            // Valida al salir del campo; después revalida mientras escribe
+            el.addEventListener("blur", () => { c.classList.add("tocado"); validar(c); });
+            ["input", "change"].forEach(ev => el.addEventListener(ev, () => {
+                if (c.classList.contains("tocado")) validar(c);
+            }));
+        });
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            let primero = null;
+            campos.forEach(c => {
+                c.classList.add("tocado");
+                if (!validar(c) && !primero) primero = c;
+            });
+            if (primero) { control(primero).focus(); return; }
+
+            // Acá iría el envío al servidor (action / method)
+            form.hidden = true;
+            document.getElementById("exito").hidden = false;
+        });
+    </script>
+</body>
+
+</html>
