@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type = "image/png" href="logo_carpoint.png">
+    <link rel="icon" type = "image/png" href="logo_carpoint_blanco_gris.png">
     <title>CarPoint</title>
 
 </head>
@@ -22,7 +22,7 @@
             </nav>
 
             <div class="logo">
-                <img src="./logo_carpoint.png" alt="CarPoint" class="logo-img">
+                <img src="./logo_carpoint_blanco_gris.png" alt="CarPoint" class="logo-img">
             </div>
 
             <div class="right">
@@ -86,15 +86,92 @@
             <div class="stock-texto">
                 <h2>Vehículos nuevos en stock</h2>
                 <label for="vehiculo">Elegí el vehículo</label>
-                <select id="vehiculo" disabled>
-                    <option>Todos los vehículos</option>
-                    <option>A3 Sportback</option>
-                    <option>A3 Sedán</option>
-                    <option>S3 Sportback</option>
-                    <option>Q3</option>
-                    <option>Q5</option>
+                <select id="vehiculo">
+                    <option value="">Todos los vehículos</option>
+
+                    <optgroup label="Audi">
+                        <option>A3 Sedán</option>
+                        <option>A3 Sportback</option>
+                        <option>A5 Sportback</option>
+                        <option>e-tron GT</option>
+                        <option>Q3</option>
+                        <option>Q5</option>
+                        <option>Q6 e-tron</option>
+                        <option>Q8</option>
+                        <option>RS 3</option>
+                        <option>RS 5</option>
+                        <option>RS 6 Avant</option>
+                        <option>S3 Sportback</option>
+                    </optgroup>
+
+                    <optgroup label="BMW">
+                        <option>330i</option>
+                        <option>i4</option>
+                        <option>iX</option>
+                        <option>M2</option>
+                        <option>M3 Competition</option>
+                        <option>M4 Competition</option>
+                        <option>X4</option>
+                        <option>X5</option>
+                        <option>X6</option>
+                    </optgroup>
+
+                    <optgroup label="Ferrari">
+                        <option>296 GTB</option>
+                        <option>Purosangue</option>
+                        <option>Roma</option>
+                    </optgroup>
+
+                    <optgroup label="Lamborghini">
+                        <option>Revuelto</option>
+                        <option>Urus</option>
+                    </optgroup>
+
+                    <optgroup label="Land Rover">
+                        <option>Defender</option>
+                        <option>Range Rover</option>
+                        <option>Range Rover Evoque</option>
+                        <option>Range Rover Sport</option>
+                        <option>Range Rover Velar</option>
+                    </optgroup>
+
+                    <optgroup label="Maserati">
+                        <option>Grecale</option>
+                        <option>GranTurismo</option>
+                    </optgroup>
+
+                    <optgroup label="Mercedes-Benz">
+                        <option>AMG A 45</option>
+                        <option>AMG C 63</option>
+                        <option>AMG GT</option>
+                        <option>C 300</option>
+                        <option>Clase G</option>
+                        <option>EQE</option>
+                        <option>EQS SUV</option>
+                        <option>GLC</option>
+                        <option>GLE</option>
+                    </optgroup>
+
+                    <optgroup label="Porsche">
+                        <option>911 Carrera</option>
+                        <option>911 Turbo S</option>
+                        <option>Cayenne</option>
+                        <option>Cayman</option>
+                        <option>Macan</option>
+                        <option>Macan Electric</option>
+                        <option>Taycan</option>
+                    </optgroup>
+
+                    <optgroup label="Volvo">
+                        <option>EX30</option>
+                        <option>XC60</option>
+                        <option>XC90</option>
+                    </optgroup>
                 </select>
-                <a class="boton" href="#">119 vehículos disponibles</a>
+
+                <button class="boton" id="boton-stock" type="button">
+                    119 vehículos disponibles
+                </button>
             </div>
             <img class="stock-foto" src="./audiA3.jpg" alt="Audi A3 en la calle">
         </div>
@@ -103,55 +180,170 @@
     <footer>
         <div class="columna">
             <h4>Modelos</h4>
-            <a href="#">Todos los modelos</a>
-            <a href="#">Vehículos en stock</a>
+            <a href="#" data-abrir="modal-modelos">Todos los modelos</a>
+            <a href="#" data-abrir="modal-stock">Vehículos en stock</a>
         </div>
         <div class="columna">
             <h4>Servicios y Accesorios</h4>
-            <a href="#">Service a domicilio</a>
-            <a href="#">Accesorios</a>
+            <a href="#" data-abrir="modal-service">Service a domicilio</a>
+            <a href="#" data-abrir="modal-accesorios">Accesorios</a>
         </div>
         <div class="columna">
             <h4>Cotizaciones</h4>
-            <a href="#">Whatsapp</a>
-            <a href="#">Teléfono</a>
+            <a href="https://wa.me/5493515550123?text=Hola%20CarPoint%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n"
+               target="_blank"
+               rel="noopener">
+                Whatsapp
+            </a>
+            <a href="#" data-abrir="modal-telefono">Teléfono</a>
         </div>
         <div class="columna">
             <h4>Necesitás ayuda</h4>
-            <a href="#">Contacto</a>
+            <a href="#" data-abrir="modal-contacto">Contacto</a>
         </div>
         <div class="columna">
             <h4>Compañía</h4>
-            <a href="#">Nosotros</a>
-            <a href="#">Trabajá con nosotros</a>
+            <a href="#" data-abrir="modal-nosotros">Nosotros</a>
+            <a href="#" data-abrir="modal-empleo">Trabajá con nosotros</a>
         </div>
     </footer>
-    <script>
-        // Header que se oculta al bajar y reaparece al subir
-        const header = document.querySelector(".hero-wrapper header");
-        let ultimoScroll = window.scrollY;
-        const UMBRAL = 8;   // ignora movimientos mínimos de la rueda
 
-        window.addEventListener("scroll", () => {
-            const actual = Math.max(window.scrollY, 0);
 
-            // Fondo oscuro apenas te alejás de la parte de arriba
-            header.classList.toggle("header--solido", actual > 60);
+    <!-- MODAL STOCK -->
+    <dialog id="modal-stock">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3 id="stock-titulo">Vehículos en stock</h3>
+        <ul class="lista" id="stock-lista"></ul>
+    </dialog>
 
-            if (Math.abs(actual - ultimoScroll) < UMBRAL) return;
+    <!-- MODAL MODELOS -->
+    <dialog id="modal-modelos">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Todos los modelos</h3>
+        <ul class="lista" id="modelos-lista"></ul>
+    </dialog>
 
-            if (actual > ultimoScroll && actual > 120) {
-                header.classList.add("header--oculto");      // bajando: se oculta
-            } else {
-                header.classList.remove("header--oculto");   // subiendo: aparece
-            }
-            ultimoScroll = actual;
-        }, { passive: true });
+    <!-- MODAL SERVICE -->
+    <dialog id="modal-service">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Service a domicilio</h3>
+        <p>
+            Nuestros técnicos van a tu casa u oficina.
+            Completá el formulario y te confirmamos el turno.
+        </p>
+        <form class="formulario" id="form-service">
+            <label for="service-nombre">Nombre y apellido</label>
+            <input id="service-nombre" required>
 
-        // Si navegás con teclado (Tab), el header tiene que verse
-        header.addEventListener("focusin", () => {
-            header.classList.remove("header--oculto");
-        });
-    </script>
+            <label for="service-telefono">Teléfono</label>
+            <input id="service-telefono" type="tel" required>
+
+            <label for="service-direccion">Dirección</label>
+            <input id="service-direccion" required>
+
+            <label for="service-modelo">Modelo</label>
+            <select id="service-modelo" required>
+                <option>A3 Sportback</option>
+                <option>A3 Sedán</option>
+                <option>S3 Sportback</option>
+                <option>Q3</option>
+                <option>Q5</option>
+            </select>
+
+            <label for="service-fecha">Fecha preferida</label>
+            <input id="service-fecha" type="date" required>
+
+            <button class="boton" type="submit">Solicitar turno</button>
+        </form>
+    </dialog>
+
+    <!-- MODAL ACCESORIOS -->
+    <dialog id="modal-accesorios">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Accesorios</h3>
+        <ul class="lista" id="accesorios-lista"></ul>
+    </dialog>
+
+    <!-- MODAL TELÉFONO -->
+    <dialog id="modal-telefono">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Cotizaciones por teléfono</h3>
+        <p class="dato-contacto">(0351) 555-0123</p>
+        <p>Lunes a viernes de 9 a 19 h · Sábados de 9 a 13 h</p>
+        <a class="boton" href="tel:+543515550123">Llamar ahora</a>
+    </dialog>
+
+    <!-- MODAL CONTACTO -->
+    <dialog id="modal-contacto">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Contacto</h3>
+        <p>Av. Colón 1250, Córdoba · info@carpoint.com.ar</p>
+        <form class="formulario" id="form-contacto">
+            <label for="contacto-nombre">Nombre y apellido</label>
+            <input id="contacto-nombre" required>
+
+            <label for="contacto-email">Email</label>
+            <input id="contacto-email" type="email" required>
+
+            <label for="contacto-mensaje">Mensaje</label>
+            <textarea id="contacto-mensaje" required></textarea>
+
+            <button class="boton" type="submit">Enviar consulta</button>
+        </form>
+    </dialog>
+
+    <!-- MODAL NOSOTROS -->
+    <dialog id="modal-nosotros">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Nosotros</h3>
+        <p>
+            CarPoint es una concesionaria oficial fundada en 1998
+            en la ciudad de Córdoba. Desde hace más de 25 años
+            acompañamos a nuestros clientes en la compra de su
+            vehículo nuevo o usado, con asesoramiento personalizado
+            y un servicio de posventa de primer nivel.
+        </p>
+        <p>
+            Contamos con un showroom de 2.500 m², taller propio
+            con 18 boxes y un equipo de más de 60 personas.
+        </p>
+        <ul class="lista">
+            <li>
+                <span>Vehículos entregados</span>
+                <span class="precio">+12.000</span>
+            </li>
+            <li>
+                <span>Clientes satisfechos</span>
+                <span class="precio">97%</span>
+            </li>
+            <li>
+                <span>Sucursales</span>
+                <span class="precio">3</span>
+            </li>
+        </ul>
+    </dialog>
+
+    <!-- MODAL EMPLEO -->
+    <dialog id="modal-empleo">
+        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
+        <h3>Trabajá con nosotros</h3>
+        <ul class="lista" id="empleo-lista"></ul>
+        <form class="formulario" id="form-empleo">
+            <label for="empleo-nombre">Nombre y apellido</label>
+            <input id="empleo-nombre" required>
+
+            <label for="empleo-email">Email</label>
+            <input id="empleo-email" type="email" required>
+
+            <label for="empleo-puesto">Puesto</label>
+            <select id="empleo-puesto" required></select>
+
+            <label for="empleo-cv">CV (PDF)</label>
+            <input id="empleo-cv" type="file" accept=".pdf" required>
+
+            <button class="boton" type="submit">Postularme</button>
+        </form>
+    </dialog>
+
 </body>
 </html>

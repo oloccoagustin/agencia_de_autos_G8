@@ -808,3 +808,142 @@ a.card, a.search-bar{
     text-decoration: none;
     color: inherit;
 }
+
+/* =====================================================
+   MODALES (dialog), LISTAS Y FORMULARIOS
+   Nuevo: estilos para los <dialog> agregados al body
+   (stock, modelos, service, accesorios, teléfono,
+   contacto, nosotros, empleo) que todavía no tenían CSS.
+   ===================================================== */
+
+dialog{
+    width: 640px;
+    max-width: calc(100% - 32px);
+    max-height: 80vh;
+    background: #1c1c1c;
+    color: var(--text);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+dialog::backdrop{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+dialog h3{
+    margin: 0 0 20px 0;
+    padding-right: 30px;
+    font-family: var(--fuente-header);
+}
+
+dialog p{
+    color: #bbb;
+    line-height: 1.5;
+}
+
+.cerrar{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #8d8d8d;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cerrar:hover{
+    color: var(--text);
+}
+
+.lista{
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.lista li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #2c2c2c;
+    font-size: 14px;
+}
+
+.lista small{
+    display: block;
+    color: #8d8d8d;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.lista .boton{
+    padding: 7px 16px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.precio{
+    color: var(--text);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.formulario label{
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea{
+    width: 100%;
+    box-sizing: border-box;
+    background: #141414;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: var(--text);
+    padding: 11px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.formulario textarea{
+    height: 90px;
+    resize: vertical;
+}
+
+.formulario .boton{
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.mensaje-ok{
+    background: #243326;
+    border: 1px solid #3f6b45;
+    color: #cfe8d2;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.dato-contacto{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+/* Dentro de un dialog, el botón de stock/service no necesita ancho completo */
+dialog .stock-texto .boton{
+    display: inline-block;
+}
