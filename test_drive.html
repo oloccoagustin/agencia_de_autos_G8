@@ -169,7 +169,7 @@
                     <span class="error">Ingresá tu número de celular completo.</span>
                 </div>
                 <div class="campo flotante">
-                    <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
+                    <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
                     <label for="email">E-mail</label>
                     <span class="error">Ingresá un e-mail válido.</span>
                 </div>
@@ -344,6 +344,10 @@
             document.getElementById("exito").hidden = false;
         });
     </script>
+
+    <script src="buscador.js"></script>
+    <script src="buscar_concesionaria.js"></script>
+</body>
 </body>
 
 </html>
