@@ -81,7 +81,7 @@
     </div>
 
     <main class="footer-main">
-        <div class="stock">
+        <div class="stock" id="stock">
             <div class="stock-texto">
                 <h2>Vehículos nuevos en stock</h2>
                 <label for="vehiculo">Elegí el vehículo</label>
@@ -172,15 +172,17 @@
                     119 vehículos disponibles
                 </button>
             </div>
-            <img class="stock-foto" src="./audiA3.jpg" alt="Audi A3 en la calle">
+            <img class="stock-foto" src="img/stock-amg-gt.jpg" alt="Mercedes-AMG GT en la pista">
         </div>
     </main>
 
+    <!-- Los links con data-abrir abren su ventana (footer.js).
+         Si el JS no carga, el href lleva a la sección correspondiente. -->
     <footer>
         <div class="columna">
             <h4>Modelos</h4>
-            <a href="#" data-abrir="modal-modelos">Todos los modelos</a>
-            <a href="#" data-abrir="modal-stock">Vehículos en stock</a>
+            <a href="0km.html" data-abrir="modal-modelos">Todos los modelos</a>
+            <a href="#stock" data-abrir="modal-stock">Vehículos en stock</a>
         </div>
         <div class="columna">
             <h4>Servicios y Accesorios</h4>
@@ -194,157 +196,21 @@
                rel="noopener">
                 Whatsapp
             </a>
-            <a href="#" data-abrir="modal-telefono">Teléfono</a>
+            <a href="tel:+543515550123" data-abrir="modal-telefono">Teléfono</a>
         </div>
         <div class="columna">
             <h4>Necesitás ayuda</h4>
-            <a href="#" data-abrir="modal-contacto">Contacto</a>
+            <a href="concesionarias.html" data-abrir="modal-contacto">Contacto</a>
         </div>
         <div class="columna">
             <h4>Compañía</h4>
-            <a href="#" data-abrir="modal-nosotros">Nosotros</a>
+            <a href="nosotros.html">Nosotros</a>
             <a href="#" data-abrir="modal-empleo">Trabajá con nosotros</a>
         </div>
     </footer>
 
-
-    <!-- MODAL STOCK -->
-    <dialog id="modal-stock">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3 id="stock-titulo">Vehículos en stock</h3>
-        <ul class="lista" id="stock-lista"></ul>
-    </dialog>
-
-    <!-- MODAL MODELOS -->
-    <dialog id="modal-modelos">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Todos los modelos</h3>
-        <ul class="lista" id="modelos-lista"></ul>
-    </dialog>
-
-    <!-- MODAL SERVICE -->
-    <dialog id="modal-service">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Service a domicilio</h3>
-        <p>
-            Nuestros técnicos van a tu casa u oficina.
-            Completá el formulario y te confirmamos el turno.
-        </p>
-        <form class="formulario" id="form-service">
-            <label for="service-nombre">Nombre y apellido</label>
-            <input id="service-nombre" required>
-
-            <label for="service-telefono">Teléfono</label>
-            <input id="service-telefono" type="tel" required>
-
-            <label for="service-direccion">Dirección</label>
-            <input id="service-direccion" required>
-
-            <label for="service-modelo">Modelo</label>
-            <select id="service-modelo" required>
-                <option>A3 Sportback</option>
-                <option>A3 Sedán</option>
-                <option>S3 Sportback</option>
-                <option>Q3</option>
-                <option>Q5</option>
-            </select>
-
-            <label for="service-fecha">Fecha preferida</label>
-            <input id="service-fecha" type="date" required>
-
-            <button class="boton" type="submit">Solicitar turno</button>
-        </form>
-    </dialog>
-
-    <!-- MODAL ACCESORIOS -->
-    <dialog id="modal-accesorios">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Accesorios</h3>
-        <ul class="lista" id="accesorios-lista"></ul>
-    </dialog>
-
-    <!-- MODAL TELÉFONO -->
-    <dialog id="modal-telefono">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Cotizaciones por teléfono</h3>
-        <p class="dato-contacto">(0351) 555-0123</p>
-        <p>Lunes a viernes de 9 a 19 h · Sábados de 9 a 13 h</p>
-        <a class="boton" href="tel:+543515550123">Llamar ahora</a>
-    </dialog>
-
-    <!-- MODAL CONTACTO -->
-    <dialog id="modal-contacto">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Contacto</h3>
-        <p>Av. Colón 1250, Córdoba · info@carpoint.com.ar</p>
-        <form class="formulario" id="form-contacto">
-            <label for="contacto-nombre">Nombre y apellido</label>
-            <input id="contacto-nombre" required>
-
-            <label for="contacto-email">Email</label>
-            <input id="contacto-email" type="email" required>
-
-            <label for="contacto-mensaje">Mensaje</label>
-            <textarea id="contacto-mensaje" required></textarea>
-
-            <button class="boton" type="submit">Enviar consulta</button>
-        </form>
-    </dialog>
-
-    <!-- MODAL NOSOTROS -->
-    <dialog id="modal-nosotros">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Nosotros</h3>
-        <p>
-            CarPoint es una concesionaria oficial fundada en 1998
-            en la ciudad de Córdoba. Desde hace más de 25 años
-            acompañamos a nuestros clientes en la compra de su
-            vehículo nuevo o usado, con asesoramiento personalizado
-            y un servicio de posventa de primer nivel.
-        </p>
-        <p>
-            Contamos con un showroom de 2.500 m², taller propio
-            con 18 boxes y un equipo de más de 60 personas.
-        </p>
-        <ul class="lista">
-            <li>
-                <span>Vehículos entregados</span>
-                <span class="precio">+12.000</span>
-            </li>
-            <li>
-                <span>Clientes satisfechos</span>
-                <span class="precio">97%</span>
-            </li>
-            <li>
-                <span>Sucursales</span>
-                <span class="precio">3</span>
-            </li>
-        </ul>
-    </dialog>
-
-    <!-- MODAL EMPLEO -->
-    <dialog id="modal-empleo">
-        <button class="cerrar" type="button" aria-label="Cerrar">&times;</button>
-        <h3>Trabajá con nosotros</h3>
-        <ul class="lista" id="empleo-lista"></ul>
-        <form class="formulario" id="form-empleo">
-            <label for="empleo-nombre">Nombre y apellido</label>
-            <input id="empleo-nombre" required>
-
-            <label for="empleo-email">Email</label>
-            <input id="empleo-email" type="email" required>
-
-            <label for="empleo-puesto">Puesto</label>
-            <select id="empleo-puesto" required></select>
-
-            <label for="empleo-cv">CV (PDF)</label>
-            <input id="empleo-cv" type="file" accept=".pdf" required>
-
-            <button class="boton" type="submit">Postularme</button>
-        </form>
-    </dialog>
-
     <script src="buscador.js"></script>
+    <script src="footer.js"></script>
 
 </body>
 </html>
