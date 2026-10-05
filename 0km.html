@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="0km.css">
+    <title>0 Km | CarPoint</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="left">
+            <a href="0km.html" class="active">0 Km</a>
+            <a href="usados.html">Usados</a>
+            <a href="electricos.html">Eléctricos</a>
+        </nav>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="./logo_carpoint_blanco_gris.png"
+                     alt="CarPoint"
+                     class="logo-img">
+            </a>
+        </div>
+
+        <div class="right">
+
+            <div class="dealer">
+
+    <svg viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+
+    <details class="dealer-menu">
+        <summary>Seleccionar un concesionario</summary>
+
+        <div class="dealer-options">
+            <a href="#">CarPoint Córdoba</a>
+            <a href="#">CarPoint Villa María</a>
+            <a href="#">CarPoint Bell Ville</a>
+            <a href="#">CarPoint Río Cuarto</a>
+        </div>
+    </details>
+
+</div>
+
+            <div class="search-icon">
+
+                <svg viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="catalogo">
+
+        <div class="catalogo-titulo">
+            <h1>Vehículos 0 Km</h1>
+            <p>Encontrá el auto que estás buscando.</p>
+        </div>
+
+    <!-- FILTROS -->
+<div class="filtros">
+
+
+        <select id="filtro-marca">
+    <option value="">Todas las marcas</option>
+        <option>Audi</option>
+        <option>BMW</option>
+        <option>Mercedes-Benz</option>
+        <option>Porsche</option>
+        <option>Land Rover</option>
+        <option>Volvo</option>
+    </select>
+
+    
+    <select id="filtro-modelo">
+    <option value="">Todos los modelos</option>
+
+    <option value="RS 3">Audi RS 3</option>
+    <option value="RS 6 Avant">Audi RS 6 Avant</option>
+    <option value="Q5">Audi Q5</option>
+    <option value="A3 Sedán">Audi A3 Sedán</option>
+
+    <option value="M4 Competition">BMW M4 Competition</option>
+    <option value="X5">BMW X5</option>
+    <option value="X6">BMW X6</option>
+
+    <option value="AMG GT">Mercedes-AMG GT</option>
+    <option value="GLC">Mercedes-Benz GLC</option>
+    <option value="Clase G">Mercedes-Benz Clase G</option>
+
+    <option value="911 Carrera">Porsche 911 Carrera</option>
+    <option value="Cayenne">Porsche Cayenne</option>
+    <option value="Macan">Porsche Macan</option>
+
+    <option value="Range Rover Sport">Land Rover Range Rover Sport</option>
+    <option value="Defender">Land Rover Defender</option>
+    <option value="Range Rover Velar">Land Rover Range Rover Velar</option>
+
+    <option value="XC60">Volvo XC60</option>
+    <option value="XC90">Volvo XC90</option>
+</select>
+
+    <!-- PRECIO -->
+    <select id="filtro-precio">
+    <option value="">Ordenar por precio</option>
+    <option value="menor">Menor precio</option>
+    <option value="mayor">Mayor precio</option>
+</select>
+
+<button type="button" id="limpiar-filtros">
+    Limpiar filtros
+</button>
+</div>
+
+<div id="sinResultados" class="sin-resultados">
+    <h2>No encontramos vehículos</h2>
+    <p>No hay vehículos que coincidan con los filtros seleccionados.</p>
+</div>
+
+<!-- AUTOS -->
+<div class="autos-grid">
+
+    
+    <article class="auto-card"
+         data-marca="Porsche"
+         data-modelo="911 Carrera"
+         data-precio="245000000">
+        <div class="auto-imagen">
+            <img src="img/img/porsche-911.jpg" alt="Porsche 911 Carrera">
+        </div>
+        <div class="auto-info">
+            <span>Porsche</span>
+            <h2>911 Carrera</h2>
+            <p>0 Km · 2026</p>
+            <h3>$245.000.000</h3>
+<a href="financiacion.html?modelo=911%20Carrera#form-financiacion" class="btn-auto">Ver financiación</a>        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Audi"
+         data-modelo="RS 3"
+         data-precio="112000000">
+        <div class="auto-imagen">
+            <img src="img/img/audi-rs3.jpg" alt="Audi RS 3">
+        </div>
+        <div class="auto-info">
+            <span>Audi</span>
+            <h2>RS 3</h2>
+            <p>0 Km · 2026</p>
+            <h3>$112.000.000</h3>
+<a href="financiacion.html?modelo=RS%203#form-financiacion" class="btn-auto">Ver financiación</a>        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="BMW"
+         data-modelo="M4 Competition"
+         data-precio="168000000">
+        <div class="auto-imagen">
+            <img src="img/img/bmw-m4.jpg" alt="BMW M4 Competition">
+        </div>
+        <div class="auto-info">
+            <span>BMW</span>
+            <h2>M4 Competition</h2>
+            <p>0 Km · 2026</p>
+            <h3>$168.000.000</h3>
+<a href="financiacion.html?modelo=M4%20Competition#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Mercedes-Benz"
+         data-modelo="AMG GT"
+         data-precio="235000000">
+        <div class="auto-imagen">
+            <img src="img/img/mercedes-amg-gt.jpg" alt="Mercedes-AMG GT">
+        </div>
+        <div class="auto-info">
+            <span>Mercedes-Benz</span>
+            <h2>AMG GT</h2>
+            <p>0 Km · 2026</p>
+            <h3>$235.000.000</h3>
+<a href="financiacion.html?modelo=AMG%20GT#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Land Rover"
+         data-modelo="Range Rover Sport"
+         data-precio="178000000">
+        <div class="auto-imagen">
+            <img src="img/img/range-rover-sport.jpg" alt="Range Rover Sport">
+        </div>
+        <div class="auto-info">
+            <span>Land Rover</span>
+            <h2>Range Rover Sport</h2>
+            <p>0 Km · 2026</p>
+            <h3>$178.000.000</h3>
+<a href="financiacion.html?modelo=Range%20Rover%20Sport#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+   
+    <article class="auto-card"
+         data-marca="Porsche"
+         data-modelo="Cayenne"
+         data-precio="165000000">
+        <div class="auto-imagen">
+            <img src="img/img/porsche-cayenne.jpg" alt="Porsche Cayenne">
+        </div>
+        <div class="auto-info">
+            <span>Porsche</span>
+            <h2>Cayenne</h2>
+            <p>0 Km · 2026</p>
+            <h3>$165.000.000</h3>
+<a href="financiacion.html?modelo=Cayenne#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Audi"
+         data-modelo="RS 6 Avant"
+         data-precio="215000000">
+        <div class="auto-imagen">
+            <img src="img/img/audi-rs6.jpg" alt="Audi RS 6 Avant">
+        </div>
+        <div class="auto-info">
+            <span>Audi</span>
+            <h2>RS 6 Avant</h2>
+            <p>0 Km · 2026</p>
+            <h3>$215.000.000</h3>
+<a href="financiacion.html?modelo=RS%206%20Avant#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="BMW"
+         data-modelo="X6"
+         data-precio="152000000">
+        <div class="auto-imagen">
+            <img src="img/img/bmw-x6.jpg" alt="BMW X6">
+        </div>
+        <div class="auto-info">
+            <span>BMW</span>
+            <h2>X6</h2>
+            <p>0 Km · 2026</p>
+            <h3>$152.000.000</h3>
+<a href="financiacion.html?modelo=X6#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Mercedes-Benz"
+         data-modelo="Clase G"
+         data-precio="310000000">
+        <div class="auto-imagen">
+            <img src="img/img/mercedes-clase-g.png" alt="Mercedes-Benz Clase G">
+        </div>
+        <div class="auto-info">
+            <span>Mercedes-Benz</span>
+            <h2>Clase G</h2>
+            <p>0 Km · 2026</p>
+            <h3>$310.000.000</h3>
+<a href="financiacion.html?modelo=Clase%20G#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+   
+<article class="auto-card"
+         data-marca="Audi"
+         data-modelo="Q5"
+         data-precio="89700000">
+    <div class="auto-imagen">
+        <img src="img/img/audi-q5.jpg" alt="Audi Q5">
+    </div>
+
+    <div class="auto-info">
+        <span>Audi</span>
+        <h2>Q5</h2>
+        <p>0 Km · 2026</p>
+        <h3>$89.700.000</h3>
+<a href="financiacion.html?modelo=Q5#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+
+<article class="auto-card"
+         data-marca="BMW"
+         data-modelo="X5"
+         data-precio="139000000">
+    <div class="auto-imagen">
+        <img src="img/img/bmw-x5.jpg" alt="BMW X5">
+    </div>
+
+    <div class="auto-info">
+        <span>BMW</span>
+        <h2>X5</h2>
+        <p>0 Km · 2026</p>
+        <h3>$139.000.000</h3>
+<a href="financiacion.html?modelo=X5#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+
+<article class="auto-card"
+         data-marca="Mercedes-Benz"
+         data-modelo="GLC"
+         data-precio="96000000">
+    <div class="auto-imagen">
+        <img src="img/img/mercedes-glc.jpg" alt="Mercedes-Benz GLC">
+    </div>
+
+    <div class="auto-info">
+        <span>Mercedes-Benz</span>
+        <h2>GLC</h2>
+        <p>0 Km · 2026</p>
+        <h3>$96.000.000</h3>
+<a href="financiacion.html?modelo=GLC#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+<article class="auto-card"
+         data-marca="Porsche"
+         data-modelo="Macan"
+         data-precio="112000000">
+
+    <div class="auto-imagen">
+        <img src="img/img/porsche-macan.jpg" alt="Porsche Macan">
+    </div>
+
+    <div class="auto-info">
+        <span>Porsche</span>
+        <h2>Macan</h2>
+        <p>0 Km · 2026</p>
+        <h3>$112.000.000</h3>
+<a href="financiacion.html?modelo=Macan#form-financiacion" class="btn-auto">
+    Ver financiación
+</a>    </div>
+
+</article>
+<article class="auto-card"
+         data-marca="Land Rover"
+         data-modelo="Defender"
+         data-precio="126000000">
+    <div class="auto-imagen">
+        <img src="img/img/land-rover-defender.webp" alt="Land Rover Defender">
+    </div>
+
+    <div class="auto-info">
+        <span>Land Rover</span>
+        <h2>Defender</h2>
+        <p>0 Km · 2026</p>
+        <h3>$126.000.000</h3>
+<a href="financiacion.html?modelo=Defender#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+<article class="auto-card"
+         data-marca="Volvo"
+         data-modelo="XC60"
+         data-precio="89000000">
+    <div class="auto-imagen">
+        <img src="img/img/volvo-xc60.jpg" alt="Volvo XC60">
+    </div>
+
+    <div class="auto-info">
+        <span>Volvo</span>
+        <h2>XC60</h2>
+        <p>0 Km · 2026</p>
+        <h3>$89.000.000</h3>
+<a href="financiacion.html?modelo=XC60#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+<article class="auto-card"
+         data-marca="Volvo"
+         data-modelo="XC90"
+         data-precio="128000000">
+
+    <div class="auto-imagen">
+        <img src="img/img/volvo-xc90.jpg" alt="Volvo XC90">
+    </div>
+
+    <div class="auto-info">
+        <span>Volvo</span>
+        <h2>XC90</h2>
+        <p>0 Km · 2026</p>
+        <h3>$128.000.000</h3>
+<a href="financiacion.html?modelo=XC90#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+
+<article class="auto-card"
+         data-marca="Land Rover"
+         data-modelo="Range Rover Velar"
+         data-precio="118000000">
+    <div class="auto-imagen">
+        <img src="img/img/range-rover-velar.jpg" alt="Range Rover Velar">
+    </div>
+
+    <div class="auto-info">
+        <span>Land Rover</span>
+        <h2>Range Rover Velar</h2>
+        <p>0 Km · 2026</p>
+        <h3>$118.000.000</h3>
+<a href="financiacion.html?modelo=Range%20Rover%20Velar#form-financiacion" class="btn-auto">Ver financiación</a>
+    </div>
+</article>
+
+
+
+<article class="auto-card"
+         data-marca="Audi"
+         data-modelo="A3 Sedán"
+         data-precio="49900000">
+    <div class="auto-imagen">
+        <img src="img/img/audi-a3-sedan.jpg" alt="Audi A3 Sedán">
+    </div>
+
+    <div class="auto-info">
+        <span>Audi</span>
+        <h2>A3 Sedán</h2>
+        <p>0 Km · 2026</p>
+        <h3>$49.900.000</h3>
+<a href="financiacion.html?modelo=A3%20Sedán#form-financiacion" class="btn-auto">Ver financiación</a>    </div>
+</article>
+</div>    
+    </main>
+
+ <footer>
+    <div class="columna">
+        <h4>Modelos</h4>
+        <a href="0km.html" data-abrir="modal-modelos">Todos los modelos</a>
+        <a href="#stock" data-abrir="modal-stock">Vehículos en stock</a>
+    </div>
+
+    <div class="columna">
+        <h4>Servicios y Accesorios</h4>
+        <a href="#" data-abrir="modal-service">Service a domicilio</a>
+        <a href="#" data-abrir="modal-accesorios">Accesorios</a>
+    </div>
+
+    <div class="columna">
+        <h4>Cotizaciones</h4>
+
+        <a href="https://wa.me/5493515550123?text=Hola%20CarPoint%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n"
+           target="_blank"
+           rel="noopener">
+            Whatsapp
+        </a>
+
+        <a href="tel:+543515550123" data-abrir="modal-telefono">
+            Teléfono
+        </a>
+    </div>
+
+    <div class="columna">
+        <h4>Necesitás ayuda</h4>
+        <a href="concesionarias.html" data-abrir="modal-contacto">
+            Contacto
+        </a>
+    </div>
+
+    <div class="columna">
+        <h4>Compañía</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="#" data-abrir="modal-empleo">
+            Trabajá con nosotros
+        </a>
+    </div>
+</footer>
+
+    <script src="buscador.js"></script>
+    <script src="buscar_concesionaria.js"></script>
+    <script src="filtros.js"></script>
+    <script src="footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+/* =====================================================
+   FORMULARIOS (Financiación, Test Drive) - estilo CarPoint
+   Se carga DESPUÉS de index.css. No modifica nada de index.css.
+   Usa las variables de index.css: --red, --red-dark, --fuente-header
+   ===================================================== */
+
+[hidden]{ display: none !important; }
+
+/* ---------- FONDO DE LA PÁGINA ----------
+   Para poner tu imagen: guardala en la misma carpeta con el nombre
+   fondo-financiacion.jpg (o cambiá el nombre acá abajo).
+   El degradé oscuro va por encima para que el formulario se lea bien;
+   si querés ver más la foto, bajá los números .82 y .92 */
+.formulario-pagina{
+    background-color: #0e0e12;
+    background-image:
+        linear-gradient(180deg, rgba(14,14,18,.82) 0%, rgba(14,14,18,.92) 100%),
+        url('fondo-financiacion.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 70px 24px 100px;
+}
+
+.formulario-cabecera,
+.form-carpoint,
+.form-exito{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.formulario-cabecera h1{
+    font-family: var(--fuente-header);
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+.formulario-cabecera p{
+    font-size: 18px;
+    color: var(--text-dim);
+}
+
+.form-carpoint{ margin-top: 48px; }
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 10px;
+}
+
+/* ---------- CAMPO ---------- */
+.campo{
+    position: relative;
+    padding-bottom: 34px;
+    margin-bottom: 22px;
+    font-family: var(--fuente-header);
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo select{
+    width: 100%;
+    height: 76px;
+    padding: 28px 48px 8px 13px;
+    background: rgba(255,255,255,.08);
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.28);
+    font-family: inherit;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 0;
+    backdrop-filter: blur(6px);
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.campo select{
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+}
+.campo select option,
+.campo select optgroup{
+    background: #1d1b20;
+    color: #fff;
+}
+
+.campo input:focus,
+.campo select:focus{
+    outline: none;
+    background-color: rgba(255,255,255,.13);
+    border-bottom: 2px solid var(--red);
+}
+
+/* Etiqueta flotante: va DESPUÉS del control para poder usar ~ */
+.flotante > label{
+    position: absolute;
+    left: 13px;
+    top: 10px;
+    font-size: 12px;
+    color: #b9b9c2;
+    pointer-events: none;
+    transition: top .2s ease, font-size .2s ease, color .2s ease;
+}
+/* Si el input está vacío y sin foco, la etiqueta hace de placeholder */
+.flotante input:placeholder-shown:not(:focus) ~ label{
+    top: 27px;
+    font-size: 18px;
+    color: #a4a4ae;
+}
+
+/* ---------- ERROR ---------- */
+.error{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    color: #ff6b76;
+    font-size: 16px;
+}
+
+.campo.invalido .error{ display: block; }
+.campo.invalido input,
+.campo.invalido select{ border-bottom-color: #ff6b76; }
+
+/* Ícono "!" rojo dentro del campo */
+.flotante.invalido::after{
+    content: "!";
+    position: absolute;
+    right: 16px;
+    top: 27px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ff6b76;
+    border-radius: 50%;
+    color: #ff6b76;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+}
+.campo--select.invalido::after{ right: 48px; }
+
+/* ---------- TÉRMINOS ---------- */
+.campo--terminos{
+    margin-top: 10px;
+    text-align: right;
+}
+.campo--terminos label{
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.campo--terminos input{
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.35);
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: background .2s ease, border-color .2s ease;
+}
+.campo--terminos input:checked{
+    background: var(--red);
+    border-color: var(--red);
+}
+.campo--terminos input:checked::after{
+    content: "";
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+.campo--terminos input:focus-visible{ outline: 3px solid #29b6f6; }
+.campo--terminos.invalido input{ border-color: #ff6b76; }
+.campo--terminos .error{
+    position: static;
+    margin-top: 8px;
+}
+
+/* ---------- BOTÓN ---------- */
+.form-acciones{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+.btn-enviar{
+    width: 250px;
+    height: 60px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--fuente-header);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease, box-shadow .3s ease;
+}
+.btn-enviar:hover{
+    background: var(--red-dark);
+    box-shadow: 0 8px 24px rgba(230,57,70,.35);
+}
+.btn-enviar:active{ transform: scale(.98); }
+
+/* ---------- MENSAJE DE ENVÍO OK ---------- */
+.form-exito{
+    margin-top: 48px;
+    padding: 40px;
+    border-left: 4px solid var(--red);
+    background: rgba(255,255,255,.08);
+}
+.form-exito h2{ font-family: var(--fuente-header); margin-bottom: 8px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 900px){
+    .form-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 600px){
+    .formulario-pagina{ padding: 40px 16px 70px; }
+    .formulario-cabecera h1{ font-size: 32px; }
+    .form-grid{ grid-template-columns: 1fr; }
+    .btn-enviar{ width: 100%; }
+    .campo--terminos{ text-align: left; }
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="electricos.css">
+    <title>Eléctricos | CarPoint</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="left">
+            <a href="0km.html">0 Km</a>
+            <a href="usados.html">Usados</a>
+            <a href="electricos.html" class="active">Eléctricos</a>
+        </nav>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="./logo_carpoint_blanco_gris.png"
+                     alt="CarPoint"
+                     class="logo-img">
+            </a>
+        </div>
+
+        <div class="right">
+
+            <div class="dealer">
+
+    <svg viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+
+    <details class="dealer-menu">
+        <summary>Seleccionar un concesionario</summary>
+
+        <div class="dealer-options">
+            <a href="#">CarPoint Córdoba</a>
+            <a href="#">CarPoint Villa María</a>
+            <a href="#">CarPoint Bell Ville</a>
+            <a href="#">CarPoint Río Cuarto</a>
+        </div>
+    </details>
+
+</div>
+
+            <div class="search-icon">
+
+                <svg viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="catalogo">
+
+        <div class="catalogo-titulo">
+            <h1>Vehículos Eléctricos</h1>
+            <p>Innovación, rendimiento y movilidad eléctrica.</p>
+        </div>
+
+    <!-- FILTROS -->
+<div class="filtros">
+
+    <select id="filtro-marca">
+        <option value="">Todas las marcas</option>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes-Benz">Mercedes-Benz</option>
+        <option value="Porsche">Porsche</option>
+        <option value="Volvo">Volvo</option>
+    </select>
+
+    <select id="filtro-modelo">
+        <option value="">Todos los modelos</option>
+    </select>
+
+    <select id="filtro-autonomia">
+        <option value="">Cualquier autonomía</option>
+        <option value="hasta400">Hasta 400 km</option>
+        <option value="400-500">400 - 500 km</option>
+        <option value="500-600">500 - 600 km</option>
+        <option value="mas600">Más de 600 km</option>
+    </select>
+
+    <select id="filtro-tipo">
+        <option value="">Todos los tipos</option>
+        <option value="Sedán">Sedán</option>
+        <option value="SUV">SUV</option>
+        <option value="Deportivo">Deportivo</option>
+    </select>
+
+    <select id="filtro-precio">
+        <option value="">Ordenar por precio</option>
+        <option value="menor">Menor precio</option>
+        <option value="mayor">Mayor precio</option>
+    </select>
+
+    <button type="button" id="limpiar-filtros">
+        Limpiar filtros
+    </button>
+
+</div>
+
+<div id="sinResultados" class="sin-resultados">
+    <h2>No encontramos vehículos</h2>
+    <p>No hay vehículos que coincidan con los filtros seleccionados.</p>
+</div>
+
+<!-- AUTOS -->
+<div class="autos-grid">
+
+    
+    <article class="auto-card"
+         data-marca="Porsche"
+         data-modelo="Taycan"
+         data-autonomia="503"
+         data-tipo="Deportivo"
+         data-precio="185000000">
+
+        <div class="auto-imagen">
+            <img src="img/img/porsche-taycan.jpg" alt="Porsche Taycan">
+        </div>
+        <div class="auto-info">
+            <span>Porsche</span>
+            <h2>Taycan</h2>
+            <p>100% Eléctrico · Autonomía 503 km</p>
+            <h3>$185.000.000</h3>
+<a href="financiacion.html?modelo=Taycan#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Audi"
+         data-modelo="e-tron GT"
+         data-autonomia="488"
+         data-tipo="Deportivo"
+         data-precio="189000000">
+
+        <div class="auto-imagen">
+            <img src="img/img/audi-etron-gt.jpg" alt="Audi e-tron GT">
+        </div>
+        <div class="auto-info">
+            <span>Audi</span>
+            <h2>e-tron GT</h2>
+            <p>100% Eléctrico · Autonomía 488 km</p>
+            <h3>$189.000.000</h3>
+<a href="financiacion.html?modelo=e-tron%20GT#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="BMW"
+         data-modelo="i4"
+         data-autonomia="590"
+         data-tipo="Sedán"
+         data-precio="118000000">
+
+        <div class="auto-imagen">
+            <img src="img/img/bmw-i4.jpg" alt="BMW i4">
+        </div>
+        <div class="auto-info">
+            <span>BMW</span>
+            <h2>i4</h2>
+            <p>100% Eléctrico · Autonomía 590 km</p>
+            <h3>$118.000.000</h3>
+<a href="financiacion.html?modelo=i4#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="BMW"
+         data-modelo="iX"
+         data-autonomia="633"
+         data-tipo="SUV"
+         data-precio="176000000">
+        <div class="auto-imagen">
+            <img src="img/img/bmw-ix.jpg" alt="BMW iX">
+        </div>
+        <div class="auto-info">
+            <span>BMW</span>
+            <h2>iX</h2>
+            <p>100% Eléctrico · Autonomía 633 km</p>
+            <h3> $176.000.000</h3>
+<a href="financiacion.html?modelo=iX#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Mercedes-Benz"
+         data-modelo="EQE"
+         data-autonomia="614"
+         data-tipo="Sedán"
+         data-precio="142000000">
+
+        <div class="auto-imagen">
+            <img src="img/img/mercedes-eqe.jpg" alt="Mercedes-Benz EQE">
+        </div>
+        <div class="auto-info">
+            <span>Mercedes-Benz</span>
+            <h2>EQE</h2>
+            <p>100% Eléctrico · Autonomía 614 km</p>
+            <h3>$142.000.000</h3>
+<a href="financiacion.html?modelo=EQE#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Mercedes-Benz"
+         data-modelo="EQS SUV"
+         data-autonomia="600"
+         data-tipo="SUV"
+         data-precio="198000000">
+        <div class="auto-imagen">
+            <img src="img/img/mercedes-eqs-suv.jpg" alt="Mercedes-Benz EQS SUV">
+        </div>
+        <div class="auto-info">
+            <span>Mercedes-Benz</span>
+            <h2>EQS SUV</h2>
+            <p>100% Eléctrico · Autonomía 600 km</p>
+            <h3>$198.000.000</h3>
+<a href="financiacion.html?modelo=EQS%20SUV#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Volvo"
+         data-modelo="EX30"
+         data-autonomia="476"
+         data-tipo="SUV"
+         data-precio="58000000">
+        <div class="auto-imagen">
+            <img src="img/img/volvo-ex30.jpg" alt="Volvo EX30">
+        </div>
+        <div class="auto-info">
+            <span>Volvo</span>
+            <h2>EX30</h2>
+            <p>100% Eléctrico · Autonomía 476 km</p>
+            <h3>$58.000.000</h3>
+<a href="financiacion.html?modelo=EX30#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Porsche"
+         data-modelo="Macan Electric"
+         data-autonomia="641"
+         data-tipo="SUV"
+         data-precio="139000000">
+        <div class="auto-imagen">
+            <img src="img/img/porsche-macan-electric.jpg" alt="Porsche Macan Electric">
+        </div>
+        <div class="auto-info">
+            <span>Porsche</span>
+            <h2>Macan Electric</h2>
+            <p>100% Eléctrico · Autonomía 641 km</p>
+            <h3>$139.000.000</h3>
+<a href="financiacion.html?modelo=Macan%20Electric#form-financiacion" class="btn-auto">Ver financiación</a>
+        </div>
+    </article>
+
+    
+    <article class="auto-card"
+         data-marca="Audi"
+         data-modelo="Q6 e-tron"
+         data-autonomia="625"
+         data-tipo="SUV"
+         data-precio="134000000">
+
+
+        <div class="auto-imagen">
+            <img src="img/img/audi-q6-etron.jpg" alt="Audi Q6 e-tron">
+        </div>
+        <div class="auto-info">
+            <span>Audi</span>
+            <h2>Q6 e-tron</h2>
+            <p>100% Eléctrico · Autonomía 625 km</p>
+            <h3>$134.000.000</h3>
+<a href="financiacion.html?modelo=Q6%20e-tron#form-financiacion" class="btn-auto">Ver financiación</a>        </div>
+    </article>
+
+</div>
+
+    </main>
+
+    <footer>
+    <div class="columna">
+        <h4>Modelos</h4>
+        <a href="0km.html" data-abrir="modal-modelos">Todos los modelos</a>
+        <a href="#stock" data-abrir="modal-stock">Vehículos en stock</a>
+    </div>
+
+    <div class="columna">
+        <h4>Servicios y Accesorios</h4>
+        <a href="#" data-abrir="modal-service">Service a domicilio</a>
+        <a href="#" data-abrir="modal-accesorios">Accesorios</a>
+    </div>
+
+    <div class="columna">
+        <h4>Cotizaciones</h4>
+
+        <a href="https://wa.me/5493515550123?text=Hola%20CarPoint%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n"
+           target="_blank"
+           rel="noopener">
+            Whatsapp
+        </a>
+
+        <a href="tel:+543515550123" data-abrir="modal-telefono">
+            Teléfono
+        </a>
+    </div>
+
+    <div class="columna">
+        <h4>Necesitás ayuda</h4>
+        <a href="concesionarias.html" data-abrir="modal-contacto">
+            Contacto
+        </a>
+    </div>
+
+    <div class="columna">
+        <h4>Compañía</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="#" data-abrir="modal-empleo">
+            Trabajá con nosotros
+        </a>
+    </div>
+</footer>
+
+    <script src="buscador.js"></script>
+    <script src="buscar_concesionaria.js"></script>
+    <script src="filtros.js"></script>
+    <script src="footer.js"></script>
+</body>
+
+</html>

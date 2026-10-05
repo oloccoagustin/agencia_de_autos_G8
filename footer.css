@@ -1,0 +1,349 @@
+/* =====================================================
+   FOOTER DE CARPOINT (stock + columnas + ventanas)
+   Mismos valores que index.css del proyecto.
+   ===================================================== */
+
+/* ---------- STOCK ---------- */
+.footer-main{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 0 90px 0;
+    /* El fondo ocupa todo el ancho aunque el contenido quede centrado */
+    background: #0e0e12;
+    box-shadow: 0 0 0 100vmax #0e0e12;
+    clip-path: inset(0 -100vmax);
+}
+
+.footer-main h2{
+    font-size: 26px;
+}
+
+.footer-main h3{
+    font-size: 20px;
+}
+
+.footer-main .boton{
+    display: inline-block;
+    background: #6e7683;
+    color: #fff;
+    padding: 17px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+.footer-main .boton:hover{
+    background: #838c9a;
+}
+
+.stock{
+    overflow: hidden;
+    margin-top: 80px;
+    scroll-margin-top: 40px;
+}
+
+.stock-texto{
+    float: left;
+    width: 44%;
+    padding-top: 50px;
+}
+
+.stock-texto h2{
+    font-size: 46px;
+    margin: 0 0 32px 0;
+    font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.stock-texto label{
+    display: block;
+    color: #aaa;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.stock-texto select{
+    width: 100%;
+    background: #1c1c1c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.stock-texto .boton{
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.stock-foto{
+    float: right;
+    width: 52%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+    background: #1c1c1c;
+    padding: 45px 48px 40px;
+    overflow: hidden;
+}
+
+.columna{
+    float: left;
+    width: 20%;
+}
+
+.columna h4{
+    font-size: 15px;
+    margin: 0 0 14px 0;
+    color: #fff;
+}
+
+.columna a{
+    display: block;
+    color: #8d8d8d;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.columna a:hover{
+    color: #fff;
+}
+
+/* ---------- VENTANAS DEL FOOTER ---------- */
+.modal-footer{
+    width: 640px;
+    max-width: calc(100% - 32px);
+    max-height: 80vh;
+    background: #1c1c1c;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.modal-footer::backdrop{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-footer h3{
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    padding-right: 30px;
+}
+
+.modal-footer h4{
+    color: #8d8d8d;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 18px 0 0 0;
+}
+
+.modal-footer p{
+    color: #bbb;
+    line-height: 1.5;
+    margin: 0 0 14px 0;
+}
+
+.modal-footer .boton{
+    display: inline-block;
+    background: #6e7683;
+    color: #fff;
+    padding: 11px 24px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.modal-footer .boton:hover{
+    background: #838c9a;
+}
+
+.cerrar{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #8d8d8d;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cerrar:hover{
+    color: #fff;
+}
+
+.lista{
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.lista li{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 140px 100px;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #2c2c2c;
+    font-size: 14px;
+}
+
+.lista small{
+    display: block;
+    color: #8d8d8d;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.lista .acciones{
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.modal-footer .lista .boton{
+    padding: 7px 16px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.precio{
+    color: #fff;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.formulario label{
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea{
+    width: 100%;
+    box-sizing: border-box;
+    background: #141414;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    padding: 11px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.formulario textarea{
+    height: 90px;
+    resize: vertical;
+}
+
+.mensaje-ok{
+    background: #243326;
+    border: 1px solid #3f6b45;
+    color: #cfe8d2;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.dato-contacto{
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff !important;
+    margin: 0 0 8px 0 !important;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: 1100px){
+    .footer-main{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .stock-texto{ padding-top: 20px; }
+    .stock-texto h2{ font-size: 34px; }
+    .stock-foto{ height: 340px; }
+
+    /* De 5 columnas flotantes a una grilla de 3 */
+    footer{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 20px;
+        padding: 36px 28px;
+    }
+    .columna{
+        float: none;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .footer-main{ padding-bottom: 50px; }
+    .stock{ margin-top: 30px; }
+    .stock-texto,
+    .stock-foto{
+        float: none;
+        width: 100%;
+    }
+    .stock-texto{ padding-top: 0; }
+    .stock-texto h2{
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    .stock-texto select{
+        padding: 13px;
+        font-size: 16px;
+    }
+    .footer-main .boton{
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+    .stock-foto{
+        height: auto;
+        aspect-ratio: 16 / 10;
+        margin-top: 24px;
+    }
+
+    footer{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 28px 20px;
+    }
+    .columna h4{ font-size: 14px; }
+    .columna a{ font-size: 13px; }
+
+    .modal-footer{ padding: 24px 18px; }
+    .lista li{
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .stock-texto h2{ font-size: 22px; }
+    footer{ grid-template-columns: 1fr; }
+}

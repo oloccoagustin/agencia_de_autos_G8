@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css">
+    <title>CarPoint - Footer</title>
+    <style>
+        body{
+            margin: 0;
+            background: #17171d;
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="footer-main">
+        <div class="stock" id="stock">
+            <div class="stock-texto">
+                <h2>Vehículos nuevos en stock</h2>
+                <label for="vehiculo">Elegí el vehículo</label>
+                <select id="vehiculo">
+                    <option value="">Todos los vehículos</option>
+
+                    <optgroup label="Audi">
+                        <option>A3 Sedán</option>
+                        <option>A3 Sportback</option>
+                        <option>A5 Sportback</option>
+                        <option>e-tron GT</option>
+                        <option>Q3</option>
+                        <option>Q5</option>
+                        <option>Q6 e-tron</option>
+                        <option>Q8</option>
+                        <option>RS 3</option>
+                        <option>RS 5</option>
+                        <option>RS 6 Avant</option>
+                        <option>S3 Sportback</option>
+                    </optgroup>
+
+                    <optgroup label="BMW">
+                        <option>330i</option>
+                        <option>i4</option>
+                        <option>iX</option>
+                        <option>M2</option>
+                        <option>M3 Competition</option>
+                        <option>M4 Competition</option>
+                        <option>X4</option>
+                        <option>X5</option>
+                        <option>X6</option>
+                    </optgroup>
+
+                    <optgroup label="Ferrari">
+                        <option>296 GTB</option>
+                        <option>Purosangue</option>
+                        <option>Roma</option>
+                    </optgroup>
+
+                    <optgroup label="Lamborghini">
+                        <option>Revuelto</option>
+                        <option>Urus</option>
+                    </optgroup>
+
+                    <optgroup label="Land Rover">
+                        <option>Defender</option>
+                        <option>Range Rover</option>
+                        <option>Range Rover Evoque</option>
+                        <option>Range Rover Sport</option>
+                        <option>Range Rover Velar</option>
+                    </optgroup>
+
+                    <optgroup label="Maserati">
+                        <option>Grecale</option>
+                        <option>GranTurismo</option>
+                    </optgroup>
+
+                    <optgroup label="Mercedes-Benz">
+                        <option>AMG A 45</option>
+                        <option>AMG C 63</option>
+                        <option>AMG GT</option>
+                        <option>C 300</option>
+                        <option>Clase G</option>
+                        <option>EQE</option>
+                        <option>EQS SUV</option>
+                        <option>GLC</option>
+                        <option>GLE</option>
+                    </optgroup>
+
+                    <optgroup label="Porsche">
+                        <option>911 Carrera</option>
+                        <option>911 Turbo S</option>
+                        <option>Cayenne</option>
+                        <option>Cayman</option>
+                        <option>Macan</option>
+                        <option>Macan Electric</option>
+                        <option>Taycan</option>
+                    </optgroup>
+
+                    <optgroup label="Volvo">
+                        <option>EX30</option>
+                        <option>XC60</option>
+                        <option>XC90</option>
+                    </optgroup>
+                </select>
+
+                <button class="boton" id="boton-stock" type="button">
+                    119 vehículos disponibles
+                </button>
+            </div>
+            <img class="stock-foto" src="img/stock-amg-gt.jpg" alt="Mercedes-AMG GT en la pista">
+        </div>
+    </main>
+
+    <!-- Los links con data-abrir abren su ventana (footer.js).
+         Si el JS no carga, el href lleva a la sección correspondiente. -->
+    <footer>
+        <div class="columna">
+            <h4>Modelos</h4>
+            <a href="0km.html" data-abrir="modal-modelos">Todos los modelos</a>
+            <a href="#stock" data-abrir="modal-stock">Vehículos en stock</a>
+        </div>
+        <div class="columna">
+            <h4>Servicios y Accesorios</h4>
+            <a href="#" data-abrir="modal-service">Service a domicilio</a>
+            <a href="#" data-abrir="modal-accesorios">Accesorios</a>
+        </div>
+        <div class="columna">
+            <h4>Cotizaciones</h4>
+            <a href="https://wa.me/5493515550123?text=Hola%20CarPoint%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n"
+               target="_blank"
+               rel="noopener">
+                Whatsapp
+            </a>
+            <a href="tel:+543515550123" data-abrir="modal-telefono">Teléfono</a>
+        </div>
+        <div class="columna">
+            <h4>Necesitás ayuda</h4>
+            <a href="concesionarias.html" data-abrir="modal-contacto">Contacto</a>
+        </div>
+        <div class="columna">
+            <h4>Compañía</h4>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="#" data-abrir="modal-empleo">Trabajá con nosotros</a>
+        </div>
+    </footer>
+
+    <script src="footer.js"></script>
+
+</body>
+</html>
