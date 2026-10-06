@@ -689,3 +689,41 @@ img {
         grid-template-columns: 1fr;
     }
 }
+.auto-imagen {
+    position: relative;
+}
+
+.btn-favorito {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    outline: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+
+    font-size: 27px;
+    line-height: 42px;
+
+    cursor: pointer;
+    z-index: 5;
+
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.btn-favorito.activo {
+    color: #c2183a;
+    background: rgba(0, 0, 0, 0.55);
+}
