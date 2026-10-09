@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // Borrar la concesionaria guardada al recargar la página
+    localStorage.removeItem("carpoint_sucursal");
+    
     // La concesionaria elegida se guarda en localStorage: queda en el header
     // de TODAS las páginas y se recuerda aunque cierres el navegador.
     const CLAVE = "carpoint_sucursal";
