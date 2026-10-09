@@ -1,15 +1,8 @@
-/* =====================================================
-   FOOTER DE CARPOINT (stock + columnas + ventanas)
-   Mismos valores que index.css del proyecto.
-   ===================================================== */
-
-/* ---------- STOCK ---------- */
 .footer-main{
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     padding: 40px 0 90px 0;
-    /* El fondo ocupa todo el ancho aunque el contenido quede centrado */
     background: #0e0e12;
     box-shadow: 0 0 0 100vmax #0e0e12;
     clip-path: inset(0 -100vmax);
@@ -90,7 +83,6 @@
     border-radius: 12px;
 }
 
-/* ---------- FOOTER ---------- */
 footer{
     background: #1c1c1c;
     padding: 45px 48px 40px;
@@ -120,7 +112,6 @@ footer{
     color: #fff;
 }
 
-/* ---------- VENTANAS DEL FOOTER ---------- */
 .modal-footer{
     width: 640px;
     max-width: calc(100% - 32px);
@@ -274,7 +265,6 @@ footer{
     margin: 0 0 8px 0 !important;
 }
 
-/* ---------- RESPONSIVE ---------- */
 @media screen and (max-width: 1100px){
     .footer-main{
         padding-left: 24px;
@@ -287,7 +277,6 @@ footer{
     .stock-texto h2{ font-size: 34px; }
     .stock-foto{ height: 340px; }
 
-    /* De 5 columnas flotantes a una grilla de 3 */
     footer{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
