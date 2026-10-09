@@ -1,15 +1,5 @@
-/* =====================================================
-   FOOTER DE CARPOINT
-   Hace funcionar los botones del footer y el bloque
-   "Vehículos nuevos en stock".
-   Se usa agregando UNA línea antes de </body> en cada página:
-       <script src="footer.js"></script>
-   No hace falta agregar el <link> de footer.css ni el HTML de
-   las ventanas: este archivo los carga solo.
-   ===================================================== */
 (function () {
 
-    // Carga footer.css automáticamente (tiene que estar en la misma carpeta)
     if (!document.querySelector('link[href$="footer.css"]')) {
         const hoja = document.createElement("link");
         hoja.rel = "stylesheet";
@@ -17,8 +7,6 @@
         document.head.appendChild(hoja);
     }
 
-    // ---------- DATOS: MISMA LISTA DE AUTOS QUE EL INDEX ----------
-    // catalogo = página del sitio donde está el auto
     const MODELOS = [
         { marca: "Audi", nombre: "A3 Sedán",           cantidad: 5, precio: 49900000,  versiones: ["35 TFSI", "35 TFSI Advanced", "35 TFSI S line"] },
         { marca: "Audi", nombre: "A3 Sportback",       cantidad: 5, precio: 48500000,  versiones: ["35 TFSI", "35 TFSI Advanced", "35 TFSI S line"] },
@@ -103,7 +91,6 @@
     const MARCAS = MODELOS.map(m => m.marca).filter((marca, i, todas) => todas.indexOf(marca) === i);
     const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
-    // Una unidad por cada auto en stock (119 en total)
     const STOCK = MODELOS.flatMap((modelo, m) =>
         Array.from({ length: modelo.cantidad }, (_, i) => ({
             marca: modelo.marca,
@@ -115,7 +102,6 @@
         }))
     );
 
-    // ---------- VENTANAS ----------
     const opcionesModelos = MARCAS.map(marca =>
         `<optgroup label="${marca}">` +
         MODELOS.filter(m => m.marca === marca).map(m => `<option>${m.nombre}</option>`).join("") +
@@ -181,7 +167,6 @@
             </form>`
     };
 
-    // Si la página ya trae alguna ventana con el mismo id (ej. index.html), se reemplaza
     Object.keys(VENTANAS).forEach(id => {
         const vieja = document.getElementById(id);
         if (vieja) vieja.remove();
@@ -192,7 +177,6 @@
         document.body.appendChild(modal);
     });
 
-    // ---------- LISTAS ----------
     document.getElementById("modelos-lista").innerHTML = MARCAS.map(marca =>
         `<h4>${marca}</h4><ul class="lista">` +
         MODELOS.filter(m => m.marca === marca).map(m =>
@@ -220,8 +204,6 @@
 
     document.getElementById("service-fecha").min = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 
-    // ---------- STOCK ----------
-    // El bloque "Vehículos nuevos en stock" es opcional: si la página no lo tiene, se muestra todo el stock
     const selectVehiculo = document.getElementById("vehiculo");
     const botonStock = document.getElementById("boton-stock");
     let modeloElegido = "";
@@ -250,7 +232,6 @@
         ).join("");
     }
 
-    // ---------- ABRIR / CERRAR ----------
     function cerrarTodas() {
         document.querySelectorAll("dialog.modal-footer[open]").forEach(d => d.close());
     }
@@ -290,8 +271,6 @@
         botonStock.addEventListener("click", () => abrir("modal-stock"));
     }
 
-    // Botones del footer con data-abrir: abren su ventana.
-    // Los que no tienen data-abrir (Nosotros, Whatsapp) navegan con su href.
     document.querySelectorAll("footer [data-abrir]").forEach(enlace => {
         enlace.addEventListener("click", e => {
             e.preventDefault();
@@ -317,7 +296,6 @@
         });
     });
 
-    // ---------- FORMULARIOS ----------
     document.getElementById("form-service").addEventListener("submit", function (e) {
         e.preventDefault();
         const nombre = document.getElementById("service-nombre").value.split(" ")[0];
