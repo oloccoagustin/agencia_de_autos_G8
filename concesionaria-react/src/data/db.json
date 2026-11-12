@@ -1,0 +1,382 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "vehiculos": [
+    {
+      "id": "1",
+      "categoria": "0km",
+      "marca": "Porsche",
+      "modelo": "911 Carrera",
+      "anio": 2026,
+      "precio": 245000000,
+      "imagen": "/img/img/porsche-911.jpg"
+    },
+    {
+      "id": "2",
+      "categoria": "0km",
+      "marca": "Audi",
+      "modelo": "RS 3",
+      "anio": 2026,
+      "precio": 112000000,
+      "imagen": "/img/img/audi-rs3.jpg"
+    },
+    {
+      "id": "3",
+      "categoria": "0km",
+      "marca": "BMW",
+      "modelo": "M4 Competition",
+      "anio": 2026,
+      "precio": 168000000,
+      "imagen": "/img/img/bmw-m4.jpg"
+    },
+    {
+      "id": "4",
+      "categoria": "0km",
+      "marca": "Mercedes-Benz",
+      "modelo": "AMG GT",
+      "anio": 2026,
+      "precio": 235000000,
+      "imagen": "/img/img/mercedes-amg-gt.jpg"
+    },
+    {
+      "id": "5",
+      "categoria": "0km",
+      "marca": "Land Rover",
+      "modelo": "Range Rover Sport",
+      "anio": 2026,
+      "precio": 178000000,
+      "imagen": "/img/img/range-rover-sport.jpg"
+    },
+    {
+      "id": "6",
+      "categoria": "0km",
+      "marca": "Porsche",
+      "modelo": "Cayenne",
+      "anio": 2026,
+      "precio": 165000000,
+      "imagen": "/img/img/porsche-cayenne.jpg"
+    },
+    {
+      "id": "7",
+      "categoria": "0km",
+      "marca": "Audi",
+      "modelo": "RS 6 Avant",
+      "anio": 2026,
+      "precio": 215000000,
+      "imagen": "/img/img/audi-rs6.jpg"
+    },
+    {
+      "id": "8",
+      "categoria": "0km",
+      "marca": "BMW",
+      "modelo": "X6",
+      "anio": 2026,
+      "precio": 152000000,
+      "imagen": "/img/img/bmw-x6.jpg"
+    },
+    {
+      "id": "9",
+      "categoria": "0km",
+      "marca": "Mercedes-Benz",
+      "modelo": "Clase G",
+      "anio": 2026,
+      "precio": 310000000,
+      "imagen": "/img/img/mercedes-clase-g.png"
+    },
+    {
+      "id": "10",
+      "categoria": "0km",
+      "marca": "Audi",
+      "modelo": "Q5",
+      "anio": 2026,
+      "precio": 89700000,
+      "imagen": "/img/img/audi-q5.jpg"
+    },
+    {
+      "id": "11",
+      "categoria": "0km",
+      "marca": "BMW",
+      "modelo": "X5",
+      "anio": 2026,
+      "precio": 139000000,
+      "imagen": "/img/img/bmw-x5.jpg"
+    },
+    {
+      "id": "12",
+      "categoria": "0km",
+      "marca": "Mercedes-Benz",
+      "modelo": "GLC",
+      "anio": 2026,
+      "precio": 96000000,
+      "imagen": "/img/img/mercedes-glc.jpg"
+    },
+    {
+      "id": "13",
+      "categoria": "0km",
+      "marca": "Porsche",
+      "modelo": "Macan",
+      "anio": 2026,
+      "precio": 112000000,
+      "imagen": "/img/img/porsche-macan.jpg"
+    },
+    {
+      "id": "14",
+      "categoria": "0km",
+      "marca": "Land Rover",
+      "modelo": "Defender",
+      "anio": 2026,
+      "precio": 126000000,
+      "imagen": "/img/img/land-rover-defender.webp"
+    },
+    {
+      "id": "15",
+      "categoria": "0km",
+      "marca": "Volvo",
+      "modelo": "XC60",
+      "anio": 2026,
+      "precio": 89000000,
+      "imagen": "/img/img/volvo-xc60.jpg"
+    },
+    {
+      "id": "16",
+      "categoria": "0km",
+      "marca": "Volvo",
+      "modelo": "XC90",
+      "anio": 2026,
+      "precio": 128000000,
+      "imagen": "/img/img/volvo-xc90.jpg"
+    },
+    {
+      "id": "17",
+      "categoria": "0km",
+      "marca": "Land Rover",
+      "modelo": "Range Rover Velar",
+      "anio": 2026,
+      "precio": 118000000,
+      "imagen": "/img/img/range-rover-velar.jpg"
+    },
+    {
+      "id": "18",
+      "categoria": "0km",
+      "marca": "Audi",
+      "modelo": "A3 Sedán",
+      "anio": 2026,
+      "precio": 49900000,
+      "imagen": "/img/img/audi-a3-sedan.jpg"
+    },
+    {
+      "id": "19",
+      "categoria": "usados",
+      "marca": "Porsche",
+      "modelo": "Macan",
+      "anio": 2023,
+      "km": 28500,
+      "precio": 82000000,
+      "imagen": "/img/img/porsche-macan-usado.jpg"
+    },
+    {
+      "id": "20",
+      "categoria": "usados",
+      "marca": "Audi",
+      "modelo": "A5 Sportback",
+      "anio": 2022,
+      "km": 34200,
+      "precio": 51000000,
+      "imagen": "/img/img/audi-a5-usado.jpg"
+    },
+    {
+      "id": "21",
+      "categoria": "usados",
+      "marca": "BMW",
+      "modelo": "330i",
+      "anio": 2024,
+      "km": 12300,
+      "precio": 67000000,
+      "imagen": "/img/img/bmw-330i-usado.jpg"
+    },
+    {
+      "id": "22",
+      "categoria": "usados",
+      "marca": "Mercedes-Benz",
+      "modelo": "GLC",
+      "anio": 2023,
+      "km": 21700,
+      "precio": 73000000,
+      "imagen": "/img/img/mercedes-glc-usado.jpg"
+    },
+    {
+      "id": "23",
+      "categoria": "usados",
+      "marca": "Land Rover",
+      "modelo": "Range Rover Evoque",
+      "anio": 2022,
+      "km": 39500,
+      "precio": 61000000,
+      "imagen": "/img/img/range-rover-evoque-usado.jpg"
+    },
+    {
+      "id": "24",
+      "categoria": "usados",
+      "marca": "Porsche",
+      "modelo": "Cayenne",
+      "anio": 2021,
+      "km": 47800,
+      "precio": 105000000,
+      "imagen": "/img/img/porsche-cayenne-usado.jpg"
+    },
+    {
+      "id": "25",
+      "categoria": "usados",
+      "marca": "Audi",
+      "modelo": "Q5",
+      "anio": 2023,
+      "km": 25100,
+      "precio": 68000000,
+      "imagen": "/img/img/audi-q5-usado.jpg"
+    },
+    {
+      "id": "26",
+      "categoria": "usados",
+      "marca": "BMW",
+      "modelo": "X4",
+      "anio": 2022,
+      "km": 32600,
+      "precio": 71000000,
+      "imagen": "/img/img/bmw-x4-usado.jpg"
+    },
+    {
+      "id": "27",
+      "categoria": "usados",
+      "marca": "Mercedes-Benz",
+      "modelo": "C 300",
+      "anio": 2024,
+      "km": 9800,
+      "precio": 69000000,
+      "imagen": "/img/img/mercedes-c300-usado.jpg"
+    },
+    {
+      "id": "28",
+      "categoria": "usados",
+      "marca": "Land Rover",
+      "modelo": "Defender",
+      "anio": 2023,
+      "km": 31400,
+      "precio": 98000000,
+      "imagen": "/img/img/defender-usado.jpg"
+    },
+    {
+      "id": "29",
+      "categoria": "usados",
+      "marca": "Mercedes-Benz",
+      "modelo": "AMG A 45",
+      "anio": 2022,
+      "km": 27600,
+      "precio": 79000000,
+      "imagen": "/img/img/mercedes-a45-usado.jpg"
+    },
+    {
+      "id": "30",
+      "categoria": "usados",
+      "marca": "BMW",
+      "modelo": "X5",
+      "anio": 2021,
+      "km": 52300,
+      "precio": 89000000,
+      "imagen": "/img/img/bmw-x5-usado.jpg"
+    },
+    {
+      "id": "31",
+      "categoria": "electricos",
+      "marca": "Porsche",
+      "modelo": "Taycan",
+      "tipo": "Deportivo",
+      "autonomia": 503,
+      "precio": 185000000,
+      "imagen": "/img/img/porsche-taycan.jpg"
+    },
+    {
+      "id": "32",
+      "categoria": "electricos",
+      "marca": "Audi",
+      "modelo": "e-tron GT",
+      "tipo": "Deportivo",
+      "autonomia": 488,
+      "precio": 189000000,
+      "imagen": "/img/img/audi-etron-gt.jpg"
+    },
+    {
+      "id": "33",
+      "categoria": "electricos",
+      "marca": "BMW",
+      "modelo": "i4",
+      "tipo": "Sedán",
+      "autonomia": 590,
+      "precio": 118000000,
+      "imagen": "/img/img/bmw-i4.jpg"
+    },
+    {
+      "id": "34",
+      "categoria": "electricos",
+      "marca": "BMW",
+      "modelo": "iX",
+      "tipo": "SUV",
+      "autonomia": 633,
+      "precio": 176000000,
+      "imagen": "/img/img/bmw-ix.jpg"
+    },
+    {
+      "id": "35",
+      "categoria": "electricos",
+      "marca": "Mercedes-Benz",
+      "modelo": "EQE",
+      "tipo": "Sedán",
+      "autonomia": 614,
+      "precio": 142000000,
+      "imagen": "/img/img/mercedes-eqe.jpg"
+    },
+    {
+      "id": "36",
+      "categoria": "electricos",
+      "marca": "Mercedes-Benz",
+      "modelo": "EQS SUV",
+      "tipo": "SUV",
+      "autonomia": 600,
+      "precio": 198000000,
+      "imagen": "/img/img/mercedes-eqs-suv.jpg"
+    },
+    {
+      "id": "37",
+      "categoria": "electricos",
+      "marca": "Volvo",
+      "modelo": "EX30",
+      "tipo": "SUV",
+      "autonomia": 476,
+      "precio": 58000000,
+      "imagen": "/img/img/volvo-ex30.jpg"
+    },
+    {
+      "id": "38",
+      "categoria": "electricos",
+      "marca": "Porsche",
+      "modelo": "Macan Electric",
+      "tipo": "SUV",
+      "autonomia": 641,
+      "precio": 139000000,
+      "imagen": "/img/img/porsche-macan-electric.jpg"
+    },
+    {
+      "id": "39",
+      "categoria": "electricos",
+      "marca": "Audi",
+      "modelo": "Q6 e-tron",
+      "tipo": "SUV",
+      "autonomia": 625,
+      "precio": 134000000,
+      "imagen": "/img/img/audi-q6-etron.jpg"
+    }
+  ],
+  "tasa": {
+    "tna": 45
+  },
+  "financiaciones": [],
+  "testDrives": []
+}
