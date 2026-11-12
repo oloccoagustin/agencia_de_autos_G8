@@ -1,0 +1,15 @@
+
+/* Fondo oscuro detrás de las ventanas del footer (click afuera = cerrar) */
+.modal-fondo{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(8,8,12,.72);
+    backdrop-filter: blur(4px);
+    animation: fundido .3s ease;
+}
+
+/* Con el buscador de la lupa abierto, la página de atrás no se mueve */
+html:has(.buscador-overlay){ overflow: hidden; }
+
+.buscador-overlay.abierto{ animation: fundido .25s ease; }
