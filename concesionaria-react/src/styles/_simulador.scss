@@ -1,0 +1,171 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* =====================================================
+   SIMULADOR DE CUOTAS (pages/Simulador.jsx)
+   Usa la estructura y los campos de _formularios.scss
+   ===================================================== */
+
+$borde-suave: rgba(255, 255, 255, .1);
+
+.simulador {
+    .form-acciones {
+        margin-top: 10px;
+    }
+}
+
+.formulario-enlace {
+    margin-top: 12px;
+
+    a {
+        color: $red;
+        font-weight: 600;
+    }
+}
+
+.btn-secundario {
+    padding: 12px 28px;
+    border: 1px solid $borde-suave;
+    border-radius: 8px;
+    @include colores(transparent, $blanco);
+    font-family: $fuente-header;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $red;
+        color: $red;
+    }
+}
+
+.simulador-ayuda {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    color: $text-dim;
+    font-family: $fuente-header;
+}
+
+.simulador-resultados {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    .form-acciones {
+        grid-column: 1 / -1;
+    }
+}
+
+.simulador-resultado {
+    padding: 28px 32px;
+    border-left: 4px solid $red;
+    @include colores(rgba(255, 255, 255, .08), $blanco);
+    font-family: $fuente-header;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    dl div {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 0;
+        border-bottom: 1px solid $borde-suave;
+    }
+
+    dt {
+        color: $text-dim;
+    }
+
+    dd {
+        font-weight: 600;
+    }
+
+    .simulador-cuota {
+        align-items: baseline;
+        padding: 16px 0;
+
+        dt {
+            color: $blanco;
+            font-size: 18px;
+        }
+
+        dd {
+            color: $red;
+            font-size: 30px;
+        }
+    }
+}
+
+.simulador-aclaracion {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #a4a4ae;
+}
+
+.simulador-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: $fuente-header;
+    align-self: start;
+
+    caption {
+        text-align: left;
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 14px;
+    }
+
+    th,
+    td {
+        padding: 12px 14px;
+        text-align: right;
+        border-bottom: 1px solid $borde-suave;
+    }
+
+    th:first-child,
+    td:first-child {
+        text-align: left;
+    }
+
+    th {
+        color: $text-dim;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    tbody tr:hover {
+        background: rgba(255, 255, 255, .05);
+    }
+}
+
+.simulador-tabla--elegida {
+    @include colores(rgba(230, 57, 70, .15), $blanco);
+    font-weight: 600;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: $tablet) {
+    .simulador-resultados {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: $movil) {
+    .simulador-resultado {
+        padding: 22px 18px;
+
+        .simulador-cuota dd {
+            font-size: 24px;
+        }
+    }
+
+    .simulador-tabla th,
+    .simulador-tabla td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+}

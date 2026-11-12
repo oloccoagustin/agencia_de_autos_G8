@@ -1,0 +1,22 @@
+// Colores
+$bg: #17171d;
+$bg-hero: #17171d;
+$text: #ffffff;
+$text-dim: #cfcfd6;
+$red: #e63946;
+$red-dark: #b81f2c;
+$blanco: #fff;
+$gris: #8d8d8d;
+
+// Animaciones
+$duracion: .4s;
+$curva: cubic-bezier(.2, .8, .2, 1);
+
+// Tipografía
+$fuente-header: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
+
+// Puntos de corte para el diseño responsive
+$escritorio-chico: 1100px;
+$tablet: 900px;
+$movil: 600px;
+$movil-chico: 360px;

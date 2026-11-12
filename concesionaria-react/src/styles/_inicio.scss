@@ -1,0 +1,19 @@
+
+/* Ajuste para que _footer.scss no cambie el aspecto del Inicio */
+.footer-main{
+    background: none;
+    box-shadow: none;
+    clip-path: none;
+}
+
+/* La foto del stock entra con un fundido cada vez que cambia */
+.stock-foto{
+    animation: fundido .4s ease;
+}
+
+/* Fotos de auto recortado (png/webp, sin fondo): flotan sobre el fondo oscuro */
+.stock-foto--recorte{
+    object-fit: contain;
+    border-radius: 0;
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,.35));
+}
