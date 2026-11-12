@@ -1,0 +1,229 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* =====================================================
+   BUSCADOR GLOBAL (componente Buscador.jsx)
+   Usa las variables de _variables.scss: $red, $text-dim, $fuente-header
+   ===================================================== */
+
+$gris-buscador: #83838d;
+
+.buscador-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12vh 24px 24px;
+    background: rgba(10, 10, 14, .85);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease;
+    font-family: $fuente-header;
+
+    &.abierto {
+        opacity: 1;
+        visibility: visible;
+
+        .buscador-caja {
+            transform: translateY(0);
+        }
+    }
+}
+
+.buscador-caja {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    background: $bg;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .55);
+    transform: translateY(-16px);
+    transition: transform .25s ease;
+}
+
+.buscador-cerrar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    @include colores(rgba(255, 255, 255, .06), $blanco);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+
+    &:hover {
+        background: $red;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.buscador-campo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 56px 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+    svg {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        color: $text-dim;
+    }
+
+    input {
+        flex: 1;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: none;
+        color: $blanco;
+        font-family: inherit;
+        font-size: 20px;
+
+        &::placeholder {
+            color: $gris-buscador;
+        }
+
+        /* Oculta la "x" nativa del navegador para vaciar el campo de búsqueda */
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+    }
+}
+
+.buscador-resultados {
+    overflow-y: auto;
+    padding: 10px 12px 18px;
+}
+
+.buscador-ayuda,
+.buscador-vacio {
+    padding: 22px 10px;
+    color: $text-dim;
+    font-size: 15px;
+}
+
+.buscador-grupo {
+    margin-top: 8px;
+
+    h3 {
+        padding: 10px 10px 6px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: $gris-buscador;
+    }
+}
+
+.buscador-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: $blanco;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+
+    strong {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    span {
+        font-size: 13px;
+        color: $text-dim;
+    }
+}
+
+// Efecto al pasar el mouse por un resultado o una búsqueda reciente
+.buscador-item,
+.buscador-reciente {
+    &:hover,
+    &:focus-visible {
+        background: rgba(255, 255, 255, .08);
+        transform: translateX(4px);
+        outline: none;
+    }
+}
+
+/* ---------- HISTORIAL (localStorage) ---------- */
+.buscador-historial h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buscador-borrar {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: $gris-buscador;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color .2s ease;
+
+    &:hover,
+    &:focus-visible {
+        color: $blanco;
+        outline: none;
+    }
+}
+
+.buscador-reciente {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    font-family: inherit;
+    font-size: 16px;
+    text-align: left;
+    color: $blanco;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+
+    &::before {
+        content: "↺";
+        margin-right: 12px;
+        color: $gris-buscador;
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media screen and (max-width: $movil) {
+    .buscador-overlay {
+        padding: 8vh 14px 14px;
+    }
+
+    .buscador-campo {
+        padding: 18px 48px 14px 16px;
+
+        input {
+            font-size: 17px;
+        }
+    }
+}
